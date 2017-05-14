@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0426D9751EC82251009282EB /* monitorTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9731EC82251009282EB /* monitorTVC.m */; };
+		0426D9761EC82251009282EB /* monitorTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D9741EC82251009282EB /* monitorTVC.xib */; };
+		0426D97A1EC8239A009282EB /* suggestTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9781EC8239A009282EB /* suggestTVC.m */; };
+		0426D97B1EC8239A009282EB /* suggestTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D9791EC8239A009282EB /* suggestTVC.xib */; };
+		0426D97F1EC82445009282EB /* persionCenterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D97D1EC82445009282EB /* persionCenterTVC.m */; };
+		0426D9801EC82445009282EB /* persionCenterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D97E1EC82445009282EB /* persionCenterTVC.xib */; };
 		04FF88BE1EC765B90044FF7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88BD1EC765B90044FF7F /* main.m */; };
 		04FF88C11EC765B90044FF7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88C01EC765B90044FF7F /* AppDelegate.m */; };
 		04FF88C41EC765BA0044FF7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88C31EC765BA0044FF7F /* ViewController.m */; };
@@ -18,6 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0426D9721EC82251009282EB /* monitorTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitorTVC.h; sourceTree = "<group>"; };
+		0426D9731EC82251009282EB /* monitorTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monitorTVC.m; sourceTree = "<group>"; };
+		0426D9741EC82251009282EB /* monitorTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = monitorTVC.xib; sourceTree = "<group>"; };
+		0426D9771EC8239A009282EB /* suggestTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suggestTVC.h; sourceTree = "<group>"; };
+		0426D9781EC8239A009282EB /* suggestTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suggestTVC.m; sourceTree = "<group>"; };
+		0426D9791EC8239A009282EB /* suggestTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suggestTVC.xib; sourceTree = "<group>"; };
+		0426D97C1EC82445009282EB /* persionCenterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = persionCenterTVC.h; sourceTree = "<group>"; };
+		0426D97D1EC82445009282EB /* persionCenterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = persionCenterTVC.m; sourceTree = "<group>"; };
+		0426D97E1EC82445009282EB /* persionCenterTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = persionCenterTVC.xib; sourceTree = "<group>"; };
 		04FF88B91EC765B90044FF7F /* ECGMonitorPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECGMonitorPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FF88BD1EC765B90044FF7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04FF88BF1EC765B90044FF7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,6 +89,15 @@
 				04FF88CA1EC765BB0044FF7F /* LaunchScreen.storyboard */,
 				04FF88CD1EC765BB0044FF7F /* Info.plist */,
 				04FF88BC1EC765B90044FF7F /* Supporting Files */,
+				0426D9721EC82251009282EB /* monitorTVC.h */,
+				0426D9731EC82251009282EB /* monitorTVC.m */,
+				0426D9741EC82251009282EB /* monitorTVC.xib */,
+				0426D9771EC8239A009282EB /* suggestTVC.h */,
+				0426D9781EC8239A009282EB /* suggestTVC.m */,
+				0426D9791EC8239A009282EB /* suggestTVC.xib */,
+				0426D97C1EC82445009282EB /* persionCenterTVC.h */,
+				0426D97D1EC82445009282EB /* persionCenterTVC.m */,
+				0426D97E1EC82445009282EB /* persionCenterTVC.xib */,
 			);
 			path = ECGMonitorPresentation;
 			sourceTree = "<group>";
@@ -153,9 +177,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0426D9761EC82251009282EB /* monitorTVC.xib in Resources */,
 				04FF88CC1EC765BB0044FF7F /* LaunchScreen.storyboard in Resources */,
 				04FF88C91EC765BA0044FF7F /* Assets.xcassets in Resources */,
+				0426D97B1EC8239A009282EB /* suggestTVC.xib in Resources */,
 				04FF88C71EC765BA0044FF7F /* Main.storyboard in Resources */,
+				0426D9801EC82445009282EB /* persionCenterTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0426D9751EC82251009282EB /* monitorTVC.m in Sources */,
 				04FF88C41EC765BA0044FF7F /* ViewController.m in Sources */,
 				04FF88C11EC765B90044FF7F /* AppDelegate.m in Sources */,
 				04FF88BE1EC765B90044FF7F /* main.m in Sources */,
+				0426D97A1EC8239A009282EB /* suggestTVC.m in Sources */,
+				0426D97F1EC82445009282EB /* persionCenterTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +359,7 @@
 				04FF88D21EC765BB0044FF7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
