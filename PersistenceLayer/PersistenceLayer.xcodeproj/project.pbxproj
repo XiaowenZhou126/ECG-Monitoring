@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0426D96D1EC81667009282EB /* ECGDatas.h in Headers */ = {isa = PBXBuildFile; fileRef = 0426D96B1EC81667009282EB /* ECGDatas.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0426D96E1EC81667009282EB /* ECGDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D96C1EC81667009282EB /* ECGDatas.m */; };
 		04B2E3391EC7611600C6B30F /* PersistenceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2E3381EC7611600C6B30F /* PersistenceLayer.m */; };
 		04B2E33A1EC7611600C6B30F /* PersistenceLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04B2E3371EC7611600C6B30F /* PersistenceLayer.h */; };
 		04B2E3411EC7629900C6B30F /* PersistenceLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E3371EC7611600C6B30F /* PersistenceLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04B9EFD61EC7F61C006C0785 /* PersistenceLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */; };
 		04B9EFD81EC7F61C006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */; };
-		04B9EFF11EC800FB006C0785 /* PersionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFEF1EC800FB006C0785 /* PersionInfo.h */; };
+		04B9EFF11EC800FB006C0785 /* PersionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFEF1EC800FB006C0785 /* PersionInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04B9EFF21EC800FB006C0785 /* PersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFF01EC800FB006C0785 /* PersionInfo.m */; };
 		04B9EFF51EC8013A006C0785 /* PersionInfoDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */; };
 		04B9EFF61EC8013A006C0785 /* PersionInfoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */; };
+		04B9EFF91EC808FE006C0785 /* ECGDatasDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFF71EC808FE006C0785 /* ECGDatasDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04B9EFFA1EC808FE006C0785 /* ECGDatasDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFF81EC808FE006C0785 /* ECGDatasDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0426D96B1EC81667009282EB /* ECGDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGDatas.h; sourceTree = "<group>"; };
+		0426D96C1EC81667009282EB /* ECGDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECGDatas.m; sourceTree = "<group>"; };
 		04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPersistenceLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B2E3371EC7611600C6B30F /* PersistenceLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistenceLayer.h; sourceTree = "<group>"; };
 		04B2E3381EC7611600C6B30F /* PersistenceLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceLayer.m; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 		04B9EFF01EC800FB006C0785 /* PersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfo.m; sourceTree = "<group>"; };
 		04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersionInfoDAO.h; sourceTree = "<group>"; };
 		04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfoDAO.m; sourceTree = "<group>"; };
+		04B9EFF71EC808FE006C0785 /* ECGDatasDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGDatasDAO.h; sourceTree = "<group>"; };
+		04B9EFF81EC808FE006C0785 /* ECGDatasDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECGDatasDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,10 @@
 				04B9EFF01EC800FB006C0785 /* PersionInfo.m */,
 				04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */,
 				04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */,
+				0426D96B1EC81667009282EB /* ECGDatas.h */,
+				0426D96C1EC81667009282EB /* ECGDatas.m */,
+				04B9EFF71EC808FE006C0785 /* ECGDatasDAO.h */,
+				04B9EFF81EC808FE006C0785 /* ECGDatasDAO.m */,
 			);
 			path = PersistenceLayer;
 			sourceTree = "<group>";
@@ -120,9 +132,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B9EFF51EC8013A006C0785 /* PersionInfoDAO.h in Headers */,
 				04B2E3411EC7629900C6B30F /* PersistenceLayer.h in Headers */,
+				0426D96D1EC81667009282EB /* ECGDatas.h in Headers */,
 				04B9EFF11EC800FB006C0785 /* PersionInfo.h in Headers */,
+				04B9EFF91EC808FE006C0785 /* ECGDatasDAO.h in Headers */,
+				04B9EFF51EC8013A006C0785 /* PersionInfoDAO.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B9EFFA1EC808FE006C0785 /* ECGDatasDAO.m in Sources */,
 				04B9EFF21EC800FB006C0785 /* PersionInfo.m in Sources */,
+				0426D96E1EC81667009282EB /* ECGDatas.m in Sources */,
 				04B9EFF61EC8013A006C0785 /* PersionInfoDAO.m in Sources */,
 				04B2E3391EC7611600C6B30F /* PersistenceLayer.m in Sources */,
 			);
@@ -400,6 +416,7 @@
 				04B9EFDC1EC7F61C006C0785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

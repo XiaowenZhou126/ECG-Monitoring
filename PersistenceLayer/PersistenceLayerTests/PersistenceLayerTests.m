@@ -9,12 +9,15 @@
 #import <XCTest/XCTest.h>
 #import "PersistenceLayer.h"
 #import "PersionInfoDAO.h"
+#import "ECGDatas.h"
+#import "ECGDatasDAO.h"
 
 @interface PersistenceLayerTests : XCTestCase
 {
     PersistenceLayer *p;
     NSDateFormatter *dateFormatter;
     PersionInfoDAO *pd;
+    ECGDatasDAO *ecgd;
 }
 @end
 
@@ -28,6 +31,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
     pd = [PersionInfoDAO sharedManager];
+    ecgd = [ECGDatasDAO sharedManager];
 }
 
 - (void)tearDown {
@@ -35,6 +39,7 @@
     [super tearDown];
     p = nil;
     pd = nil;
+    ecgd = nil;
 }
 
 -(void)testPersionInfo{
@@ -64,6 +69,25 @@
     model.date_of_birth = [dateFormatter dateFromString:@"1997-08-04"];
     model.age = @"63";
     XCTAssertEqual(1, [pd updateInfo:model]);
+}
+
+-(void)testECGDatas{
+    NSString *tableName = @"xx";
+    XCTAssertEqual(1, [ecgd createTable:tableName]);
+    
+    ECGDatas *model = [[ECGDatas alloc] init];
+    model.createDateTime = @"2011-01-16 21:22:12";
+    model.data = @"111,222,212,211,112";
+    ECGDatas *model1 = [[ECGDatas alloc] init];
+    model1.createDateTime = @"2011-01-15 21:21:12";
+    model1.data = @"112,222,212,211,112";
+    XCTAssertEqual(1, [ecgd insertData:model andtableName:tableName]);
+    XCTAssertEqual(1, [ecgd insertData:model1 andtableName:tableName]);
+    NSMutableArray *listData = [ecgd findNewDate:tableName];
+    XCTAssertNotNil(listData);
+    ECGDatas *aData = [listData objectAtIndex:1];
+    XCTAssertEqualObjects(@"2011-01-15 21:21:12", aData.createDateTime);
+    [ecgd deleteTable:tableName];
 }
 
 - (void)testPrint {
