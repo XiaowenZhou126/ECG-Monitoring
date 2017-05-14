@@ -49,7 +49,7 @@
     //将数组传递给tabBarOfECG
     tabBarOfECG.viewControllers = navArray;
     
-    self.window.backgroundColor = [UIColor redColor];
+//    self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

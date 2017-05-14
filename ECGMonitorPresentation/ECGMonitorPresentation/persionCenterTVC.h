@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "persionCenterV.h"
 
 @interface persionCenterTVC : UITableViewController
 

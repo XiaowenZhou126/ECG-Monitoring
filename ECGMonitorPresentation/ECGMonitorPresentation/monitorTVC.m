@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorColor = [UIColor clearColor];
     
     self.navigationItem.title = @"ECG Testing";
     float width = [[UIScreen mainScreen] bounds].size.width;

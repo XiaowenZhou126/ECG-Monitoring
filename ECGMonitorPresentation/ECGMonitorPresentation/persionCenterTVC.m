@@ -14,16 +14,22 @@
 
 @implementation persionCenterTVC
 
+int marginLeft = 40;
+int marginTop = 30;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorColor = [UIColor clearColor];
     
     self.navigationItem.title = @"Persion Center";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+    CGFloat height = [[UIScreen mainScreen] bounds].size.height;
+    persionCenterV *pcv = [[persionCenterV alloc] initWithFrame:CGRectMake(marginLeft, marginTop, width-marginLeft*2, height/3*2)];
+    pcv.backgroundColor = [UIColor clearColor];
+//    pcv.layer.borderWidth = 1;
+    [self.view addSubview:pcv];
 }
 
 - (void)didReceiveMemoryWarning {
