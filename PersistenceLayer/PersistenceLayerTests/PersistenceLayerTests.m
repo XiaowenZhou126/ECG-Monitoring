@@ -8,10 +8,13 @@
 
 #import <XCTest/XCTest.h>
 #import "PersistenceLayer.h"
+#import "PersionInfoDAO.h"
 
 @interface PersistenceLayerTests : XCTestCase
 {
     PersistenceLayer *p;
+    NSDateFormatter *dateFormatter;
+    PersionInfoDAO *pd;
 }
 @end
 
@@ -21,12 +24,46 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     p = [[PersistenceLayer alloc] init];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    pd = [PersionInfoDAO sharedManager];
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
     p = nil;
+    pd = nil;
+}
+
+-(void)testPersionInfo{
+    //test : remove
+    XCTAssertEqual(1, [pd removeInfo]);
+    
+    //test : findInfo method
+    XCTAssertNil(pd.findInfo);
+    
+    //test : insertInfo method
+    PersionInfo *model1 = [[PersionInfo alloc] init];
+    model1.persionInfoId = 1;
+    model1.name = @"bob";
+    model1.sex = @"男";
+    model1.date_of_birth = [dateFormatter dateFromString:@"1992-08-04"];
+    model1.age = @"64";
+    XCTAssertEqual(1, [pd insertInfo:model1]);
+    
+    //test : findInfo method
+    XCTAssertNotNil(pd.findInfo);
+    
+    //test : updateInfo method
+    PersionInfo *model = [[PersionInfo alloc] init];
+    model.persionInfoId = 1;
+    model.name = @"bob";
+    model.sex = @"男";
+    model.date_of_birth = [dateFormatter dateFromString:@"1997-08-04"];
+    model.age = @"63";
+    XCTAssertEqual(1, [pd updateInfo:model]);
 }
 
 - (void)testPrint {
@@ -41,7 +78,5 @@
 //        // Put the code you want to measure the time of here.
 //    }];
 //}
-
-
 
 @end

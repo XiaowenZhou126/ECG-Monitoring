@@ -12,6 +12,10 @@
 		04B2E3411EC7629900C6B30F /* PersistenceLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E3371EC7611600C6B30F /* PersistenceLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04B9EFD61EC7F61C006C0785 /* PersistenceLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */; };
 		04B9EFD81EC7F61C006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */; };
+		04B9EFF11EC800FB006C0785 /* PersionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFEF1EC800FB006C0785 /* PersionInfo.h */; };
+		04B9EFF21EC800FB006C0785 /* PersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFF01EC800FB006C0785 /* PersionInfo.m */; };
+		04B9EFF51EC8013A006C0785 /* PersionInfoDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */; };
+		04B9EFF61EC8013A006C0785 /* PersionInfoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		04B9EFD31EC7F61C006C0785 /* PersistenceLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistenceLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceLayerTests.m; sourceTree = "<group>"; };
 		04B9EFD71EC7F61C006C0785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B9EFEF1EC800FB006C0785 /* PersionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersionInfo.h; sourceTree = "<group>"; };
+		04B9EFF01EC800FB006C0785 /* PersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfo.m; sourceTree = "<group>"; };
+		04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersionInfoDAO.h; sourceTree = "<group>"; };
+		04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfoDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,10 @@
 			children = (
 				04B2E3371EC7611600C6B30F /* PersistenceLayer.h */,
 				04B2E3381EC7611600C6B30F /* PersistenceLayer.m */,
+				04B9EFEF1EC800FB006C0785 /* PersionInfo.h */,
+				04B9EFF01EC800FB006C0785 /* PersionInfo.m */,
+				04B9EFF31EC8013A006C0785 /* PersionInfoDAO.h */,
+				04B9EFF41EC8013A006C0785 /* PersionInfoDAO.m */,
 			);
 			path = PersistenceLayer;
 			sourceTree = "<group>";
@@ -108,7 +120,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B9EFF51EC8013A006C0785 /* PersionInfoDAO.h in Headers */,
 				04B2E3411EC7629900C6B30F /* PersistenceLayer.h in Headers */,
+				04B9EFF11EC800FB006C0785 /* PersionInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B9EFF21EC800FB006C0785 /* PersionInfo.m in Sources */,
+				04B9EFF61EC8013A006C0785 /* PersionInfoDAO.m in Sources */,
 				04B2E3391EC7611600C6B30F /* PersistenceLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +286,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lsqlite3";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -311,6 +328,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lsqlite3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
