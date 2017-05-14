@@ -10,7 +10,19 @@
 		04B2E3391EC7611600C6B30F /* PersistenceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2E3381EC7611600C6B30F /* PersistenceLayer.m */; };
 		04B2E33A1EC7611600C6B30F /* PersistenceLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04B2E3371EC7611600C6B30F /* PersistenceLayer.h */; };
 		04B2E3411EC7629900C6B30F /* PersistenceLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E3371EC7611600C6B30F /* PersistenceLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04B9EFD61EC7F61C006C0785 /* PersistenceLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */; };
+		04B9EFD81EC7F61C006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04B9EFD91EC7F61C006C0785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B2E32C1EC7611600C6B30F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04B2E3331EC7611600C6B30F;
+			remoteInfo = PersistenceLayer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		04B2E3321EC7611600C6B30F /* CopyFiles */ = {
@@ -29,6 +41,9 @@
 		04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPersistenceLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B2E3371EC7611600C6B30F /* PersistenceLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistenceLayer.h; sourceTree = "<group>"; };
 		04B2E3381EC7611600C6B30F /* PersistenceLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceLayer.m; sourceTree = "<group>"; };
+		04B9EFD31EC7F61C006C0785 /* PersistenceLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistenceLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceLayerTests.m; sourceTree = "<group>"; };
+		04B9EFD71EC7F61C006C0785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +54,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04B9EFD01EC7F61C006C0785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B9EFD81EC7F61C006C0785 /* libPersistenceLayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2E3361EC7611600C6B30F /* PersistenceLayer */,
+				04B9EFD41EC7F61C006C0785 /* PersistenceLayerTests */,
 				04B2E3351EC7611600C6B30F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */,
+				04B9EFD31EC7F61C006C0785 /* PersistenceLayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +90,15 @@
 				04B2E3381EC7611600C6B30F /* PersistenceLayer.m */,
 			);
 			path = PersistenceLayer;
+			sourceTree = "<group>";
+		};
+		04B9EFD41EC7F61C006C0785 /* PersistenceLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				04B9EFD51EC7F61C006C0785 /* PersistenceLayerTests.m */,
+				04B9EFD71EC7F61C006C0785 /* Info.plist */,
+			);
+			path = PersistenceLayerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +133,24 @@
 			productReference = 04B2E3341EC7611600C6B30F /* libPersistenceLayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		04B9EFD21EC7F61C006C0785 /* PersistenceLayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B9EFDD1EC7F61C006C0785 /* Build configuration list for PBXNativeTarget "PersistenceLayerTests" */;
+			buildPhases = (
+				04B9EFCF1EC7F61C006C0785 /* Sources */,
+				04B9EFD01EC7F61C006C0785 /* Frameworks */,
+				04B9EFD11EC7F61C006C0785 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04B9EFDA1EC7F61C006C0785 /* PBXTargetDependency */,
+			);
+			name = PersistenceLayerTests;
+			productName = PersistenceLayerTests;
+			productReference = 04B9EFD31EC7F61C006C0785 /* PersistenceLayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,6 +161,10 @@
 				ORGANIZATIONNAME = mac;
 				TargetAttributes = {
 					04B2E3331EC7611600C6B30F = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					04B9EFD21EC7F61C006C0785 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -127,9 +183,20 @@
 			projectRoot = "";
 			targets = (
 				04B2E3331EC7611600C6B30F /* PersistenceLayer */,
+				04B9EFD21EC7F61C006C0785 /* PersistenceLayerTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04B9EFD11EC7F61C006C0785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04B2E3301EC7611600C6B30F /* Sources */ = {
@@ -140,7 +207,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04B9EFCF1EC7F61C006C0785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B9EFD61EC7F61C006C0785 /* PersistenceLayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04B9EFDA1EC7F61C006C0785 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04B2E3331EC7611600C6B30F /* PersistenceLayer */;
+			targetProxy = 04B9EFD91EC7F61C006C0785 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		04B2E33B1EC7611600C6B30F /* Debug */ = {
@@ -251,6 +334,26 @@
 			};
 			name = Release;
 		};
+		04B9EFDB1EC7F61C006C0785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PersistenceLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xupt.PersistenceLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04B9EFDC1EC7F61C006C0785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PersistenceLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xupt.PersistenceLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -268,6 +371,15 @@
 			buildConfigurations = (
 				04B2E33E1EC7611600C6B30F /* Debug */,
 				04B2E33F1EC7611600C6B30F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04B9EFDD1EC7F61C006C0785 /* Build configuration list for PBXNativeTarget "PersistenceLayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B9EFDB1EC7F61C006C0785 /* Debug */,
+				04B9EFDC1EC7F61C006C0785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

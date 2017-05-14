@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PersistenceLayerTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>04B2E3331EC7611600C6B30F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04B9EFD21EC7F61C006C0785</key>
 		<dict>
 			<key>primary</key>
 			<true/>

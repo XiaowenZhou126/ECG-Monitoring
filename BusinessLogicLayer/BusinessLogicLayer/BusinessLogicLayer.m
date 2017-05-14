@@ -11,7 +11,7 @@
 @implementation BusinessLogicLayer
 
 -(NSString *)print{
-    return @"print PersistenceLayer";
+    return @"print BusinessLogicLayer";
 }
 
 @end

@@ -11,7 +11,20 @@
 		04B2E3511EC7632600C6B30F /* BusinessLogicLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */; };
 		04B2E3591EC7636700C6B30F /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E3581EC7636700C6B30F /* libPersistenceLayer.a */; };
 		04B9EF931EC7EF74006C0785 /* BusinessLogicLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04B9EFE51EC7F694006C0785 /* BusinessLogicLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */; };
+		04B9EFE71EC7F694006C0785 /* libBusinessLogicLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E34B1EC7632600C6B30F /* libBusinessLogicLayer.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		04B9EFEE1EC7F727006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04B9EFE81EC7F694006C0785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B2E3431EC7632600C6B30F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04B2E34A1EC7632600C6B30F;
+			remoteInfo = BusinessLogicLayer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		04B2E3491EC7632600C6B30F /* CopyFiles */ = {
@@ -31,6 +44,10 @@
 		04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessLogicLayer.h; sourceTree = "<group>"; };
 		04B2E34F1EC7632600C6B30F /* BusinessLogicLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicLayer.m; sourceTree = "<group>"; };
 		04B2E3581EC7636700C6B30F /* libPersistenceLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPersistenceLayer.a; path = "../PersistenceLayer/build/Debug-iphoneos/libPersistenceLayer.a"; sourceTree = "<group>"; };
+		04B9EFE21EC7F694006C0785 /* BusinessLogicLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessLogicLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicLayerTests.m; sourceTree = "<group>"; };
+		04B9EFE61EC7F694006C0785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPersistenceLayer.a; path = "../../../../Library/Developer/Xcode/DerivedData/ECG-Monitor-dzdgbipbooksklefpcfwefhrngat/Build/Products/Debug-iphonesimulator/libPersistenceLayer.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +59,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04B9EFDF1EC7F694006C0785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B9EFEE1EC7F727006C0785 /* libPersistenceLayer.a in Frameworks */,
+				04B9EFE71EC7F694006C0785 /* libBusinessLogicLayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -49,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2E34D1EC7632600C6B30F /* BusinessLogicLayer */,
+				04B9EFE31EC7F694006C0785 /* BusinessLogicLayerTests */,
 				04B2E34C1EC7632600C6B30F /* Products */,
 				04B2E3571EC7636600C6B30F /* Frameworks */,
 			);
@@ -58,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				04B2E34B1EC7632600C6B30F /* libBusinessLogicLayer.a */,
+				04B9EFE21EC7F694006C0785 /* BusinessLogicLayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,9 +102,19 @@
 		04B2E3571EC7636600C6B30F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */,
 				04B2E3581EC7636700C6B30F /* libPersistenceLayer.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04B9EFE31EC7F694006C0785 /* BusinessLogicLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */,
+				04B9EFE61EC7F694006C0785 /* Info.plist */,
+			);
+			path = BusinessLogicLayerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +149,24 @@
 			productReference = 04B2E34B1EC7632600C6B30F /* libBusinessLogicLayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		04B9EFE11EC7F694006C0785 /* BusinessLogicLayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B9EFEC1EC7F694006C0785 /* Build configuration list for PBXNativeTarget "BusinessLogicLayerTests" */;
+			buildPhases = (
+				04B9EFDE1EC7F694006C0785 /* Sources */,
+				04B9EFDF1EC7F694006C0785 /* Frameworks */,
+				04B9EFE01EC7F694006C0785 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04B9EFE91EC7F694006C0785 /* PBXTargetDependency */,
+			);
+			name = BusinessLogicLayerTests;
+			productName = BusinessLogicLayerTests;
+			productReference = 04B9EFE21EC7F694006C0785 /* BusinessLogicLayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -121,6 +177,10 @@
 				ORGANIZATIONNAME = mac;
 				TargetAttributes = {
 					04B2E34A1EC7632600C6B30F = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					04B9EFE11EC7F694006C0785 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -139,9 +199,20 @@
 			projectRoot = "";
 			targets = (
 				04B2E34A1EC7632600C6B30F /* BusinessLogicLayer */,
+				04B9EFE11EC7F694006C0785 /* BusinessLogicLayerTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04B9EFE01EC7F694006C0785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04B2E3471EC7632600C6B30F /* Sources */ = {
@@ -152,7 +223,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04B9EFDE1EC7F694006C0785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B9EFE51EC7F694006C0785 /* BusinessLogicLayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04B9EFE91EC7F694006C0785 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04B2E34A1EC7632600C6B30F /* BusinessLogicLayer */;
+			targetProxy = 04B9EFE81EC7F694006C0785 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		04B2E3521EC7632600C6B30F /* Debug */ = {
@@ -265,6 +352,26 @@
 			};
 			name = Release;
 		};
+		04B9EFEA1EC7F694006C0785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BusinessLogicLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xupt.BusinessLogicLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04B9EFEB1EC7F694006C0785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BusinessLogicLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xupt.BusinessLogicLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -285,6 +392,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		04B9EFEC1EC7F694006C0785 /* Build configuration list for PBXNativeTarget "BusinessLogicLayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B9EFEA1EC7F694006C0785 /* Debug */,
+				04B9EFEB1EC7F694006C0785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
