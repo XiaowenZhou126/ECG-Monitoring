@@ -26,7 +26,8 @@ int marginTop = 30;
     
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     CGFloat height = [[UIScreen mainScreen] bounds].size.height;
-    persionCenterV *pcv = [[persionCenterV alloc] initWithFrame:CGRectMake(marginLeft, marginTop, width-marginLeft*2, height/3*2)];
+   
+    persionCenterV *pcv = [[persionCenterV alloc] initWithFrame:CGRectMake(width/2-120, marginTop, 240, height/3*2)];
     pcv.backgroundColor = [UIColor clearColor];
 //    pcv.layer.borderWidth = 1;
     [self.view addSubview:pcv];

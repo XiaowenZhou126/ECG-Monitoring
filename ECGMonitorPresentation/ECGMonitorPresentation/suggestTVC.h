@@ -10,4 +10,8 @@
 
 @interface suggestTVC : UITableViewController
 
+@property (nonatomic,strong) UIScrollView *scrollView;
+
+@property (nonatomic,strong) UILabel *label;
+
 @end

@@ -20,7 +20,7 @@
         //默认输入文本框字体的颜色
         self.textColor = [UIColor blackColor];
         //moren输入文本框字体的大小
-        self.textFont = [UIFont fontWithName:@"Arial" size:18.0];
+        self.textFont = [UIFont fontWithName:@"Arial" size:13.0];
         //设置输入内容左对齐
         self.textAlignment = NSTextAlignmentLeft;
         

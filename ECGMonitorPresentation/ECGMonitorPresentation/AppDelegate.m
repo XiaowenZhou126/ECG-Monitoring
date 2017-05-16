@@ -51,6 +51,7 @@
     
 //    self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
+    NSLog(@"bundleIdentifier:%@",[[NSBundle mainBundle]bundleIdentifier]);
     return YES;
 }
 

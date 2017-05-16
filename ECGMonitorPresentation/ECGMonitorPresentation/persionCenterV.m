@@ -48,9 +48,10 @@
     [self addSubview:ageLabel];
     
     //文本框，用来输入姓名
-    nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(width/3, 10, width/3*2-10, height/3-30)];
+    nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(width/3, 15, width-width/3-10, height/3-40)];
     nameTextField.placeholder = @"例如：李四";
     nameTextField.textAlignment = NSTextAlignmentLeft;
+    nameTextField.font = [UIFont fontWithName:@"Arial" size:13.0];
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self addSubview:nameTextField];
     
@@ -135,6 +136,7 @@
     unselectedGirl.userInteractionEnabled = NO;
     unselectedGirl.hidden = 1;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
