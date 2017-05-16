@@ -11,6 +11,7 @@
 @implementation DShowlist2
 
 @synthesize listArray = _listArray;
+@synthesize singleTap;
 
 //初始化View
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -28,6 +29,8 @@
         self.lindWidth = 1.0;
         self.oldFrame = frame;
         self.flag = true;
+        
+        singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickedTextBox)];
         
         [self drawListView];
     }
@@ -57,14 +60,39 @@
     //当listArray不为空
     if(self.listArray.count > 0){
         // 默认选中第一行
-        NSIndexPath *indextPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        // 调用UItableViewDelegate
-        [self tableView:self.listView didSelectRowAtIndexPath:indextPath];
-        
-        [self.listView selectRowAtIndexPath:indextPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-        self.listView.hidden = true;
+        [self getRow:0];
+//        NSIndexPath *indextPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        // 调用UItableViewDelegate
+//        [self tableView:self.listView didSelectRowAtIndexPath:indextPath];
+//        
+//        [self.listView selectRowAtIndexPath:indextPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+//        self.listView.hidden = true;
     }
     
+}
+
+-(void)changeStatus{
+    [self.openImg addGestureRecognizer:singleTap];
+}
+
+-(void)succeedStatus{
+    [self.openImg removeGestureRecognizer:singleTap];
+}
+
+-(NSString *)getBtnTitle{
+    return self.btn.titleLabel.text;
+}
+
+//"persionCenterBL"调用
+-(void)getRow:(NSUInteger)index{
+    self.openImg.transform=CGAffineTransformMakeRotation(M_PI);
+    NSIndexPath *indextPath = [NSIndexPath indexPathForRow:index inSection:0];
+    // 调用UItableViewDelegate
+    [self tableView:self.listView didSelectRowAtIndexPath:indextPath];
+    [self.listView selectRowAtIndexPath:indextPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    self.listView.hidden = true;
+    
+//    [self.openImg removeGestureRecognizer:singleTap];
 }
 
 //创建下拉列表tableView
@@ -91,8 +119,7 @@
     [self.openImg setImage:[UIImage imageNamed:@"drop_down1"]];
     
     self.openImg.userInteractionEnabled = YES;
-    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickedTextBox)];
-    [self.openImg addGestureRecognizer:singleTap];
+//    [self.openImg addGestureRecognizer:singleTap];
     self.openImg.transform=CGAffineTransformMakeRotation(M_PI);
     [self.btn addSubview:self.openImg];
     
@@ -115,7 +142,7 @@
 
 //点击文本框是否隐藏下拉列表框
 - (void)clickedTextBox{
-    NSLog(@"--- clickedTextBox:%d ---", self.flag);
+//    NSLog(@"--- clickedTextBox:%d ---", self.flag);
     
     if (self.flag) {
         //        self.openImg.transform=CGAffineTransformMakeRotation(M_PI);

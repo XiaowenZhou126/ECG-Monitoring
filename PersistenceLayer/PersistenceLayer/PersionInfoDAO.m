@@ -124,7 +124,7 @@ static PersionInfoDAO *manager = nil;
                 NSString *nssex = [[NSString alloc] initWithUTF8String:sex];
                 
                 char *date_of_birth = (char *)sqlite3_column_text(statement, 3);
-                NSString *nsdate_of_birth = [[NSString alloc] initWithUTF8String:date_of_birth];
+                NSString *nsdate_of_birth = date_of_birth?[[NSString alloc] initWithUTF8String:date_of_birth]:NULL;
                 
                 char *age = (char *)sqlite3_column_text(statement, 4);
                 NSString *nsage = [[NSString alloc] initWithUTF8String:age];
@@ -162,6 +162,7 @@ static PersionInfoDAO *manager = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     BOOL dbExits = [fileManager fileExistsAtPath:fileName];
+    NSLog(@"fileName:%@",fileName);
     
     if(!dbExits){
         NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBFILE_NAME];
@@ -184,7 +185,6 @@ static PersionInfoDAO *manager = nil;
 
 -(NSString*)applicationDocumentsDirectoryPath{
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
     return [documentDirectory stringByAppendingPathComponent:DBFILE_NAME];
 }
 

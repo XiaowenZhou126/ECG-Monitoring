@@ -11,4 +11,6 @@
 
 @interface persionCenterTVC : UITableViewController
 
+@property(nonatomic,strong) persionCenterV *pcv;
+
 @end

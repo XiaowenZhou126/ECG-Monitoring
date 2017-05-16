@@ -15,6 +15,7 @@
 		0426D9801EC82445009282EB /* persionCenterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D97E1EC82445009282EB /* persionCenterTVC.xib */; };
 		0426D9831EC82915009282EB /* persionCenterV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9821EC82915009282EB /* persionCenterV.m */; };
 		048498E81EC836FA00F123F3 /* DShowlist2.m in Sources */ = {isa = PBXBuildFile; fileRef = 048498E71EC836FA00F123F3 /* DShowlist2.m */; };
+		04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */; };
 		04FF88BE1EC765B90044FF7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88BD1EC765B90044FF7F /* main.m */; };
 		04FF88C11EC765B90044FF7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88C01EC765B90044FF7F /* AppDelegate.m */; };
 		04FF88C41EC765BA0044FF7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88C31EC765BA0044FF7F /* ViewController.m */; };
@@ -39,6 +40,7 @@
 		0426D9821EC82915009282EB /* persionCenterV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = persionCenterV.m; sourceTree = "<group>"; };
 		048498E61EC836FA00F123F3 /* DShowlist2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DShowlist2.h; sourceTree = "<group>"; };
 		048498E71EC836FA00F123F3 /* DShowlist2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DShowlist2.m; sourceTree = "<group>"; };
+		04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		04FF88B91EC765B90044FF7F /* ECGMonitorPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECGMonitorPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FF88BD1EC765B90044FF7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04FF88BF1EC765B90044FF7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */,
 				04FF88D71EC7665E0044FF7F /* libPersistenceLayer.a in Frameworks */,
 				04FF88D51EC7665A0044FF7F /* libBusinessLogicLayer.a in Frameworks */,
 			);
@@ -123,6 +126,7 @@
 		04FF88D31EC7665A0044FF7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */,
 				04FF88D61EC7665E0044FF7F /* libPersistenceLayer.a */,
 				04FF88D41EC7665A0044FF7F /* libBusinessLogicLayer.a */,
 			);

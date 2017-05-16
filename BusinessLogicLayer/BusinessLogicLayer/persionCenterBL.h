@@ -9,11 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "PersionInfo.h"
 #import "PersionInfoDAO.h"
+#import <sqlite3.h>
+
+@protocol persionCenterBLDelegate <NSObject>
+@required
+- (void)getInfo:(PersionInfo *)info;
+@end
 
 @interface persionCenterBL : NSObject
 
+@property (nonatomic, weak) id <persionCenterBLDelegate> delegate;
 @property (nonatomic,strong) PersionInfoDAO *pd;
+@property (nonatomic,strong) PersionInfo *p;
 
--(void)findInfo;
+-(void)findPersionInfo;
+-(void)updatePersionInfo:(PersionInfo *)p;
 
 @end

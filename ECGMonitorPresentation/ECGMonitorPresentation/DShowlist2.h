@@ -41,8 +41,16 @@
 
 @property (nonatomic, assign) BOOL flag;
 
+@property (nonatomic,strong) UITapGestureRecognizer *singleTap;
+
 //得到下拉列表字符串的值
 - (void)createListArray:(NSMutableArray *)listArray;
+
+-(void)getRow:(NSUInteger)index;
+
+-(void)changeStatus;
+-(void)succeedStatus;
+-(NSString *)getBtnTitle;
 
 //设置代理
 @property (nonatomic, assign) id<DShowListDelegate>delegate;
