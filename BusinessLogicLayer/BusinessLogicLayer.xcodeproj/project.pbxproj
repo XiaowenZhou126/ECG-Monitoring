@@ -10,10 +10,12 @@
 		04B2E3501EC7632600C6B30F /* BusinessLogicLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2E34F1EC7632600C6B30F /* BusinessLogicLayer.m */; };
 		04B2E3511EC7632600C6B30F /* BusinessLogicLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */; };
 		04B2E3591EC7636700C6B30F /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E3581EC7636700C6B30F /* libPersistenceLayer.a */; };
-		04B9EF931EC7EF74006C0785 /* BusinessLogicLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04B9EF931EC7EF74006C0785 /* BusinessLogicLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */; };
 		04B9EFE51EC7F694006C0785 /* BusinessLogicLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */; };
 		04B9EFE71EC7F694006C0785 /* libBusinessLogicLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E34B1EC7632600C6B30F /* libBusinessLogicLayer.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		04B9EFEE1EC7F727006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */; };
+		04E89B861ECAE19300F08682 /* persionCenterBL.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E89B841ECAE19200F08682 /* persionCenterBL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04E89B871ECAE19300F08682 /* persionCenterBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E89B851ECAE19300F08682 /* persionCenterBL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicLayerTests.m; sourceTree = "<group>"; };
 		04B9EFE61EC7F694006C0785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPersistenceLayer.a; path = "../../../../Library/Developer/Xcode/DerivedData/ECG-Monitor-dzdgbipbooksklefpcfwefhrngat/Build/Products/Debug-iphonesimulator/libPersistenceLayer.a"; sourceTree = "<group>"; };
+		04E89B841ECAE19200F08682 /* persionCenterBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = persionCenterBL.h; sourceTree = "<group>"; };
+		04E89B851ECAE19300F08682 /* persionCenterBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = persionCenterBL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 			children = (
 				04B2E34E1EC7632600C6B30F /* BusinessLogicLayer.h */,
 				04B2E34F1EC7632600C6B30F /* BusinessLogicLayer.m */,
+				04E89B841ECAE19200F08682 /* persionCenterBL.h */,
+				04E89B851ECAE19300F08682 /* persionCenterBL.m */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E89B861ECAE19300F08682 /* persionCenterBL.h in Headers */,
 				04B9EF931EC7EF74006C0785 /* BusinessLogicLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B2E3501EC7632600C6B30F /* BusinessLogicLayer.m in Sources */,
+				04E89B871ECAE19300F08682 /* persionCenterBL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +408,7 @@
 				04B9EFEB1EC7F694006C0785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

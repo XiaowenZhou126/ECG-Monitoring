@@ -20,6 +20,7 @@
 -(void)createEditableCopyOfDatabaseIfNeeded;
 -(NSString*)applicationDocumentsDirectoryPath;//返回文件路径
 -(void)closeDatabase;
+
 -(PersionInfo*)findInfo;
 -(int)updateInfo:(PersionInfo *)model;
 -(int)insertInfo:(PersionInfo *)model;
