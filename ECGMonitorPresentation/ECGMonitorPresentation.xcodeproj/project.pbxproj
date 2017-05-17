@@ -14,6 +14,8 @@
 		0426D97F1EC82445009282EB /* persionCenterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D97D1EC82445009282EB /* persionCenterTVC.m */; };
 		0426D9801EC82445009282EB /* persionCenterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D97E1EC82445009282EB /* persionCenterTVC.xib */; };
 		0426D9831EC82915009282EB /* persionCenterV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9821EC82915009282EB /* persionCenterV.m */; };
+		042BFC321ECC707D00525679 /* monitorV.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BFC311ECC707D00525679 /* monitorV.m */; };
+		042BFC351ECC723F00525679 /* ECGDatas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 042BFC341ECC723F00525679 /* ECGDatas.mm */; };
 		048498E81EC836FA00F123F3 /* DShowlist2.m in Sources */ = {isa = PBXBuildFile; fileRef = 048498E71EC836FA00F123F3 /* DShowlist2.m */; };
 		04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */; };
 		04FF88BE1EC765B90044FF7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88BD1EC765B90044FF7F /* main.m */; };
@@ -38,6 +40,10 @@
 		0426D97E1EC82445009282EB /* persionCenterTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = persionCenterTVC.xib; sourceTree = "<group>"; };
 		0426D9811EC82915009282EB /* persionCenterV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = persionCenterV.h; sourceTree = "<group>"; };
 		0426D9821EC82915009282EB /* persionCenterV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = persionCenterV.m; sourceTree = "<group>"; };
+		042BFC301ECC707D00525679 /* monitorV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitorV.h; sourceTree = "<group>"; };
+		042BFC311ECC707D00525679 /* monitorV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monitorV.m; sourceTree = "<group>"; };
+		042BFC331ECC723F00525679 /* ECGDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGDatas.h; sourceTree = "<group>"; };
+		042BFC341ECC723F00525679 /* ECGDatas.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ECGDatas.mm; sourceTree = "<group>"; };
 		048498E61EC836FA00F123F3 /* DShowlist2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DShowlist2.h; sourceTree = "<group>"; };
 		048498E71EC836FA00F123F3 /* DShowlist2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DShowlist2.m; sourceTree = "<group>"; };
 		04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -101,6 +107,10 @@
 				0426D9721EC82251009282EB /* monitorTVC.h */,
 				0426D9731EC82251009282EB /* monitorTVC.m */,
 				0426D9741EC82251009282EB /* monitorTVC.xib */,
+				042BFC301ECC707D00525679 /* monitorV.h */,
+				042BFC311ECC707D00525679 /* monitorV.m */,
+				042BFC331ECC723F00525679 /* ECGDatas.h */,
+				042BFC341ECC723F00525679 /* ECGDatas.mm */,
 				0426D9771EC8239A009282EB /* suggestTVC.h */,
 				0426D9781EC8239A009282EB /* suggestTVC.m */,
 				0426D9791EC8239A009282EB /* suggestTVC.xib */,
@@ -212,6 +222,8 @@
 				04FF88C41EC765BA0044FF7F /* ViewController.m in Sources */,
 				048498E81EC836FA00F123F3 /* DShowlist2.m in Sources */,
 				04FF88C11EC765B90044FF7F /* AppDelegate.m in Sources */,
+				042BFC321ECC707D00525679 /* monitorV.m in Sources */,
+				042BFC351ECC723F00525679 /* ECGDatas.mm in Sources */,
 				04FF88BE1EC765B90044FF7F /* main.m in Sources */,
 				0426D9831EC82915009282EB /* persionCenterV.m in Sources */,
 				0426D97A1EC8239A009282EB /* suggestTVC.m in Sources */,
