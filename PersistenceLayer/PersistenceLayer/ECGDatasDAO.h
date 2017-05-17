@@ -21,7 +21,9 @@
 -(NSString *)applicationDocumentsDirectoryPath;//返回文件路径
 -(void)closeDatabase;
 -(int)createTable:(NSString *)tableName;//不存在添加一张表
+
 -(int)insertData:(ECGDatas *)model andtableName:(NSString*)tableName;//插入一条数据
 -(NSMutableArray *)findNewDate:(NSString *)tableName;
 -(void)deleteTable:(NSString*)tableName;
+
 @end

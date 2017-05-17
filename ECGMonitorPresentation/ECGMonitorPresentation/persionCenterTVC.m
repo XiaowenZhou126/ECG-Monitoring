@@ -49,8 +49,9 @@ int marginTop = 30;
 }
 
 -(void)changeSucceed{
-    [self changeInfo];
-    [pcv onSucceedBtnClick];
+    if([pcv onSucceedBtnClick]){
+      [self changeInfo];   
+    }
 }
 
 - (void)didReceiveMemoryWarning {

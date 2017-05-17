@@ -14,6 +14,9 @@
 @interface persionCenterV : UIView <persionCenterBLDelegate>
 {
     NSDateFormatter *dateFormatter;
+    UILabel *errorLable;
+    CGFloat width;
+    CGFloat height;
 }
 
 //下拉框的线宽
@@ -42,6 +45,6 @@
 @property (nonatomic,strong) UITapGestureRecognizer *singleTap1,*singleTap2;
 
 -(void)onChangeBtnClick;
--(void)onSucceedBtnClick;
+-(BOOL)onSucceedBtnClick;
 
 @end

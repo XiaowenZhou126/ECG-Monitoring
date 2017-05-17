@@ -19,6 +19,9 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        width = self.frame.size.width;
+        height = self.frame.size.height/2;
+        
         self.backgroundColor = [UIColor whiteColor];
         self.clearsContextBeforeDrawing = YES;
         self.lindWidth = 1.0;
@@ -31,6 +34,13 @@
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         
+        errorLable = [[UILabel alloc] initWithFrame:CGRectMake(width/3, height/3-20, width-width/3-10, 10)];
+        errorLable.textColor = [UIColor redColor];
+        errorLable.text = @"姓名不能为空";
+        errorLable.font = [UIFont fontWithName:@"Arial" size:10.0];
+        errorLable.hidden = 1;
+        [self addSubview:errorLable];
+        
         [self drawListView];
     }
     
@@ -38,9 +48,6 @@
 }
 
 - (void)drawListView{
-    CGFloat width = self.frame.size.width;
-    CGFloat height = self.frame.size.height/2;
-    
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width/3-10, height/3-10)];
     nameLabel.text = @"姓  名：";
     nameLabel.textAlignment = NSTextAlignmentRight;
@@ -63,6 +70,7 @@
     nameTextField.font = [UIFont fontWithName:@"Arial" size:13.0];
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     nameTextField.enabled = NO;
+    nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self addSubview:nameTextField];
     
     self.flagSex = 1;//flagSex=1，选中“男”；flagSex=0，选中“女”；
@@ -154,22 +162,57 @@
     [dropDown changeStatus];
 }
 
--(void)onSucceedBtnClick{
+-(BOOL)onSucceedBtnClick{
     NSLog(@"come on");
-    nameTextField.enabled = NO;
-    [unselectedBoy removeGestureRecognizer:self.singleTap1];
-    [unselectedGirl removeGestureRecognizer:self.singleTap2];
-    [boyBtn setUserInteractionEnabled:NO];
-    [girlBtn setUserInteractionEnabled:NO];
-    [dropDown succeedStatus];
-    PersionInfo *ptemp = [[PersionInfo alloc] init];
-    ptemp.persionInfoId = 1;
-    ptemp.name = nameTextField.text;
-    ptemp.sex = self.flagSex == 1 ? @"男" : @"女";
-    ptemp.age = dropDown.getBtnTitle;
     
-    NSLog(@"%@,%@,%@,%@",ptemp.name,ptemp.sex,ptemp.age,ptemp.date_of_birth);
-    [pbl updatePersionInfo:ptemp];
+    if(![nameTextField.text isEqual:@""]){
+        nameTextField.enabled = NO;
+        [unselectedBoy removeGestureRecognizer:self.singleTap1];
+        [unselectedGirl removeGestureRecognizer:self.singleTap2];
+        [boyBtn setUserInteractionEnabled:NO];
+        [girlBtn setUserInteractionEnabled:NO];
+        [dropDown succeedStatus];
+
+        PersionInfo *ptemp = [[PersionInfo alloc] init];
+        ptemp.persionInfoId = 1;
+        ptemp.name = nameTextField.text;
+        ptemp.sex = self.flagSex == 1 ? @"男" : @"女";
+        ptemp.age = dropDown.getBtnTitle;
+        NSLog(@"%@,%@,%@,%@",ptemp.name,ptemp.sex,ptemp.age,ptemp.date_of_birth);
+        //    [pbl updatePersionInfo:ptemp];
+        return 1;
+    }
+    else{
+        //nameTextField.text为空，
+        [nameTextField becomeFirstResponder];
+        errorLable.hidden = 0;//errorLable是nameTextField为空时，才显示错误
+        
+        //UIView *rightVeiw = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, nameTextField.frame.size.height)];
+        //rightVeiw.backgroundColor = [UIColor grayColor];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, nameTextField.frame.size.height)];
+        imageView.image = [UIImage imageNamed:@"error"];//[[UIImage alloc] initWithImage:[UIImage imageNamed:@"error"]];
+        imageView.contentMode =  UIViewContentModeCenter;
+        
+        //[rightVeiw addSubview:imageView];
+        
+        //nameTextField.rightView = rightVeiw;
+        
+        nameTextField.rightView = imageView;
+        nameTextField.rightViewMode = UITextFieldViewModeWhileEditing;
+        
+        //将nameField监视，当其内容发生变化时，调用textFieldDidChange
+        [nameTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
+        return 0;
+    }
+}
+
+//监视nameTextField内容的变化，当内容发生变化时，调用此方法
+- (void) textFieldDidChange:(id) sender {
+    errorLable.hidden = 1;//nameTextField内容改变（这里是nameTextField不为空时）errorLable显示
+
+    nameTextField.rightView = UITextFieldViewModeNever;
+    nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
 }
 
 - (void)getInfo:(PersionInfo *)info{

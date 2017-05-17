@@ -23,6 +23,7 @@
 //点击“完成”，获取数据-》对比-》写入数据库,不需要代理
 //对比相同，不修改；不同则，修改
 -(void)updatePersionInfo:(PersionInfo *)pTemp{
+    
     if(!([pTemp.name isEqual:p.name] && [pTemp.sex isEqual:p.sex] && [pTemp.age isEqual:p.age])){
     //对象的值不相等，写入数据库
         [pd updateInfo:pTemp];
