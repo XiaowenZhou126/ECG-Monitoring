@@ -30,12 +30,10 @@
     [segmentedControl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl];
     
-    UIButton *shareBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    shareBtn.frame = CGRectMake(width/6*5, height/50.0f, 50, 50);//注意设置为图片大小，不然会出现模糊
-    shareBtn.backgroundColor = [UIColor grayColor];
-    [shareBtn setImage:[UIImage imageNamed:@"c3"] forState:UIControlStateNormal];
-    [shareBtn addTarget:self action:@selector(onClickShareBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareBtn];
+    //target:self 是自己调用自己，修改控件的状态
+    UIBarButtonItem *rightItem =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"c3"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareBtn)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
 }
 
 -(void)change:(UISegmentedControl *)sender{

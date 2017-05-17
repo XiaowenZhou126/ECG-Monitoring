@@ -163,8 +163,6 @@
 }
 
 -(BOOL)onSucceedBtnClick{
-    NSLog(@"come on");
-    
     if(![nameTextField.text isEqual:@""]){
         nameTextField.enabled = NO;
         [unselectedBoy removeGestureRecognizer:self.singleTap1];
@@ -187,16 +185,9 @@
         [nameTextField becomeFirstResponder];
         errorLable.hidden = 0;//errorLable是nameTextField为空时，才显示错误
         
-        //UIView *rightVeiw = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, nameTextField.frame.size.height)];
-        //rightVeiw.backgroundColor = [UIColor grayColor];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, nameTextField.frame.size.height)];
-        imageView.image = [UIImage imageNamed:@"error"];//[[UIImage alloc] initWithImage:[UIImage imageNamed:@"error"]];
+        imageView.image = [UIImage imageNamed:@"error"];
         imageView.contentMode =  UIViewContentModeCenter;
-        
-        //[rightVeiw addSubview:imageView];
-        
-        //nameTextField.rightView = rightVeiw;
         
         nameTextField.rightView = imageView;
         nameTextField.rightViewMode = UITextFieldViewModeWhileEditing;
