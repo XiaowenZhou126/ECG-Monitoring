@@ -51,7 +51,10 @@
     
 //    self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
-    NSLog(@"bundleIdentifier:%@",[[NSBundle mainBundle]bundleIdentifier]);
+//    NSLog(@"bundleIdentifier:%@",[[NSBundle mainBundle]bundleIdentifier]);
+//    NSLog(@"resourcePath++++%@",[[NSBundle mainBundle] resourcePath]);
+//    NSLog(@"NSHomeDirectory---%@", NSHomeDirectory() );
+//    NSLog(@"%@",NSSearchPathForDirectoriesInDomains((NSDocumentDirectory), NSUserDomainMask, YES));
     return YES;
 }
 

@@ -45,7 +45,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "心电图标180.png",
+      "filename" : "ecg180.png",
       "scale" : "3x"
     },
     {
@@ -93,13 +93,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "心电图标152.png",
+      "filename" : "ecg152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "心电图标167.png",
+      "filename" : "ecg167.png",
       "scale" : "2x"
     }
   ],

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0414AE131ECDB2960071CF9C /* ECG_Monitor_DB.db in Resources */ = {isa = PBXBuildFile; fileRef = 0414AE121ECDB2960071CF9C /* ECG_Monitor_DB.db */; };
 		0426D9751EC82251009282EB /* monitorTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9731EC82251009282EB /* monitorTVC.m */; };
 		0426D9761EC82251009282EB /* monitorTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D9741EC82251009282EB /* monitorTVC.xib */; };
 		0426D97A1EC8239A009282EB /* suggestTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9781EC8239A009282EB /* suggestTVC.m */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0414AE121ECDB2960071CF9C /* ECG_Monitor_DB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ECG_Monitor_DB.db; sourceTree = "<group>"; };
 		0426D9721EC82251009282EB /* monitorTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitorTVC.h; sourceTree = "<group>"; };
 		0426D9731EC82251009282EB /* monitorTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monitorTVC.m; sourceTree = "<group>"; };
 		0426D9741EC82251009282EB /* monitorTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = monitorTVC.xib; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		04FF88BC1EC765B90044FF7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0414AE121ECDB2960071CF9C /* ECG_Monitor_DB.db */,
 				04FF88BD1EC765B90044FF7F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -174,7 +177,6 @@
 				TargetAttributes = {
 					04FF88B81EC765B90044FF7F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = WXLT6UF8UE;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -205,6 +207,7 @@
 				0426D9761EC82251009282EB /* monitorTVC.xib in Resources */,
 				04FF88CC1EC765BB0044FF7F /* LaunchScreen.storyboard in Resources */,
 				04FF88C91EC765BA0044FF7F /* Assets.xcassets in Resources */,
+				0414AE131ECDB2960071CF9C /* ECG_Monitor_DB.db in Resources */,
 				0426D97B1EC8239A009282EB /* suggestTVC.xib in Resources */,
 				04FF88C71EC765BA0044FF7F /* Main.storyboard in Resources */,
 				0426D9801EC82445009282EB /* persionCenterTVC.xib in Resources */,
@@ -349,10 +352,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXLT6UF8UE;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.ECGMonitorPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -367,10 +371,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXLT6UF8UE;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.ECGMonitorPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
