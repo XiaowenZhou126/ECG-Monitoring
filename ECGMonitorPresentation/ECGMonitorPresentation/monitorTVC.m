@@ -16,6 +16,8 @@
 
 @implementation monitorTVC
 
+@synthesize locationManager,curLocation;
+
 @synthesize leads,scrollView;
 @synthesize labelRate;
 @synthesize buffer, photoView;
@@ -70,6 +72,10 @@ int bufferSecond = 300;
 
 }
 
+-(void)getLocation:(NSString *)locationStr{
+    NSLog(@"-----%@",locationStr);
+}
+
 -(void)onClickLeft{
     NSLog(@"left");
 }
@@ -90,8 +96,64 @@ int bufferSecond = 300;
 - (void)onClickShareBtn
 {
     NSLog(@"Click Share");
-    self.view.backgroundColor = [UIColor purpleColor];
+    [self startLocation]; //定位调用
 }
+
+/***************************定位**************************************/
+-(void)startLocation{
+    
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"定位服务当前可能尚未打开，请设置打开！");
+        return;
+    }
+    
+    locationManager = [[CLLocationManager alloc] init];
+    //kCLLocationAccuracyHundredMeters导航精确到100米
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    
+    //如果没有授权则请求用户授权
+    if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+        [locationManager requestAlwaysAuthorization];
+    }
+    
+    locationManager.delegate = self;
+    //距离过滤器，定义了设备移动后获得位置的最小距离，单位是米
+    locationManager.distanceFilter = 1000.0f;
+    [locationManager startUpdatingLocation];
+    
+}
+
+#pragma mark Core Location 委托方法用于实现位置的更新
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    curLocation = [locations lastObject];
+    NSLog(@"纬度：%f，经度：%3.5f",curLocation.coordinate.latitude,curLocation.coordinate.longitude);
+    [locationManager stopUpdatingLocation];
+    [self reverse];
+}
+
+-(void)reverse{
+    CLGeocoder *gl = [[CLGeocoder alloc] init];
+    
+    [gl reverseGeocodeLocation:curLocation completionHandler:^(NSArray *placemarks,NSError *error){
+        if (error){
+            NSLog(@"Geocode failed with error: %@", error);
+            return;
+        }
+        
+        if([placemarks count] >0){
+            NSInteger count = [placemarks count];
+            CLPlacemark *placemark = placemarks[0];
+        NSLog(@"%ld,name=%@,country=%@,locality=%@,administrativeArea=%@,subLocality=%@",count,placemark.name,placemark.country,placemark.locality,placemark.administrativeArea,placemark.subLocality);
+        }
+    }];
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"error:%@",error);
+    [locationManager stopUpdatingLocation];
+}
+/****************-----------定位 end----------****************************/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -118,7 +180,7 @@ int bufferSecond = 300;
 
 - (void)startTimer_popDataFromBuffer
 {
-    CGFloat popDataInterval = 420.0f / sampleRate;//绘画的时间间隔，即隔几秒绘制一段
+    CGFloat popDataInterval =420.0f / sampleRate;//绘画的时间间隔，即隔几秒绘制一段
     
     popDataTimer = [NSTimer scheduledTimerWithTimeInterval:popDataInterval
                                                     target:self

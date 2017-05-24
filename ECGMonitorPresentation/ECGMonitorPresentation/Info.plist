@@ -30,6 +30,8 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App requires access to your phone&apos;s location to notify you when you enter or leave a geofence</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

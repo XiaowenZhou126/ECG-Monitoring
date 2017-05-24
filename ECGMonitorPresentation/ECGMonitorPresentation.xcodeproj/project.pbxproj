@@ -17,6 +17,8 @@
 		0426D9831EC82915009282EB /* persionCenterV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9821EC82915009282EB /* persionCenterV.m */; };
 		042BFC321ECC707D00525679 /* monitorV.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BFC311ECC707D00525679 /* monitorV.m */; };
 		042BFC351ECC723F00525679 /* ECGDatas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 042BFC341ECC723F00525679 /* ECGDatas.mm */; };
+		044B327B1ED491AB0063F514 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B327A1ED491AB0063F514 /* CoreLocation.framework */; };
+		044B32831ED4A9180063F514 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B32821ED4A9170063F514 /* AddressBook.framework */; };
 		048498E81EC836FA00F123F3 /* DShowlist2.m in Sources */ = {isa = PBXBuildFile; fileRef = 048498E71EC836FA00F123F3 /* DShowlist2.m */; };
 		04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */; };
 		04FF88BE1EC765B90044FF7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88BD1EC765B90044FF7F /* main.m */; };
@@ -46,6 +48,8 @@
 		042BFC311ECC707D00525679 /* monitorV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monitorV.m; sourceTree = "<group>"; };
 		042BFC331ECC723F00525679 /* ECGDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGDatas.h; sourceTree = "<group>"; };
 		042BFC341ECC723F00525679 /* ECGDatas.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ECGDatas.mm; sourceTree = "<group>"; };
+		044B327A1ED491AB0063F514 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		044B32821ED4A9170063F514 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		048498E61EC836FA00F123F3 /* DShowlist2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DShowlist2.h; sourceTree = "<group>"; };
 		048498E71EC836FA00F123F3 /* DShowlist2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DShowlist2.m; sourceTree = "<group>"; };
 		04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -68,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044B32831ED4A9180063F514 /* AddressBook.framework in Frameworks */,
+				044B327B1ED491AB0063F514 /* CoreLocation.framework in Frameworks */,
 				04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */,
 				04FF88D71EC7665E0044FF7F /* libPersistenceLayer.a in Frameworks */,
 				04FF88D51EC7665A0044FF7F /* libBusinessLogicLayer.a in Frameworks */,
@@ -139,6 +145,8 @@
 		04FF88D31EC7665A0044FF7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				044B32821ED4A9170063F514 /* AddressBook.framework */,
+				044B327A1ED491AB0063F514 /* CoreLocation.framework */,
 				04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */,
 				04FF88D61EC7665E0044FF7F /* libPersistenceLayer.a */,
 				04FF88D41EC7665A0044FF7F /* libBusinessLogicLayer.a */,

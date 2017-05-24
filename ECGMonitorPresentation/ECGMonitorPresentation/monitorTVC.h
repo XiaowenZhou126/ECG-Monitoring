@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CLLocationManagerDelegate.h>
+#import <AddressBook/AddressBook.h>
 
-@interface monitorTVC : UITableViewController
+@interface monitorTVC : UITableViewController <CLLocationManagerDelegate>
 {
     NSMutableArray *leads, *buffer;//leads存放多少个心电图
     NSTimer *drawingTimer, *popDataTimer;
@@ -22,5 +25,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *photoView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UILabel *labelRate;
+
+@property (nonatomic,strong) CLLocationManager *locationManager;
+@property (nonatomic,strong) CLLocation *curLocation;
 
 @end

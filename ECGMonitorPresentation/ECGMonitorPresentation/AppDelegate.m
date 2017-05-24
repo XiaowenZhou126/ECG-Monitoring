@@ -51,7 +51,9 @@
     
 //    self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
-//    NSLog(@"bundleIdentifier:%@",[[NSBundle mainBundle]bundleIdentifier]);
+    NSLog(@"bundleIdentifier:%@",[[NSBundle mainBundle]bundleIdentifier]);
+    ///NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //NSLog(@"version:%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]);
 //    NSLog(@"resourcePath++++%@",[[NSBundle mainBundle] resourcePath]);
 //    NSLog(@"NSHomeDirectory---%@", NSHomeDirectory() );
 //    NSLog(@"%@",NSSearchPathForDirectoriesInDomains((NSDocumentDirectory), NSUserDomainMask, YES));
