@@ -227,7 +227,15 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     
     NSData *data = characteristic.value;
     resultText.text = [[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",resultText.text);
+    NSLog(@"此时的心电数据：%@",resultText.text);
+    //获得系统日期
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // 设置日期格式，以字符串表示的日期形式的格式
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+    // 格式化日期，GMT 时间，NSDate 转 NSString
+    currentTimeStr = [formatter stringFromDate:[NSDate date]];
+    NSLog(@"当前时间%@",currentTimeStr);
+
 }
 /***************************蓝牙end**************************************/
 

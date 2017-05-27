@@ -20,6 +20,7 @@
     UILabel *labelRate;
     //	int countOfPointsInQueue;
     int currentDrawingPoint;
+    NSString *currentTimeStr;//当前系统时间的获取，精确到毫秒
 }
 
 @property (nonatomic, strong) NSMutableArray *leads, *buffer;
