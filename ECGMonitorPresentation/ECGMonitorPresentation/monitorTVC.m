@@ -8,7 +8,8 @@
 
 #import "monitorTVC.h"
 #import "monitorV.h"
-#import "ECGDatas.h"
+#import "datasOfECG.h"
+#import "ECGDatasDAO.h"
 
 #define MyDeviceName @"MLT-BT05"
 @interface monitorTVC () <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -20,6 +21,7 @@
 @synthesize resultText;
 
 @synthesize locationManager,curLocation,curLocationStr;
+@synthesize ecgDates;
 
 @synthesize leads,scrollView;
 @synthesize labelRate;
@@ -35,6 +37,14 @@ int bufferSecond = 300;
     self.tableView.separatorColor = [UIColor clearColor];
     
     self.navigationItem.title = @"ECG Testing";
+    ecgDates = [[NSMutableArray alloc] initWithCapacity:50];
+    index = 0;
+    for(int i=0;i<50;i++){
+        [ecgDates insertObject:@"0" atIndex:i];
+    }
+    
+    currentDate = [self getCurDate];
+    
     /*
     float width = [[UIScreen mainScreen] bounds].size.width;
     float height = [[UIScreen mainScreen] bounds].size.height;
@@ -226,21 +236,65 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     }
     
     NSData *data = characteristic.value;
-    resultText.text = [[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSString *ecgData = [[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    resultText.text = ecgData;
     NSLog(@"此时的心电数据：%@",resultText.text);
+    
+    /*
+    //过滤数据，当数据的值不为0的时候，考虑处理
+    if(![ecgData isEqualToString:@"0"]){
+        if([[ecgDates lastObject] isEqualToString:@"0"]){
+            //数组最后一个元素为0,添加数据
+            [ecgDates replaceObjectAtIndex:index withObject:ecgData];//添加数据
+            index++;
+        }
+        else{
+            index = 1;
+            //判断时间是否一致，一天一个表
+            //写入数据库，对timeStr进行分割
+            //index = 1,清除ecgDates的数据后，插入当前的数据，所以index=1
+            if([currentDate isEqualToString:[self getCurDate]]){
+                //直接插入数据
+                ECGDatas *model1 = [[ECGDatas alloc] init];
+                model1.createDateTime = @"";
+                model1.data = @"112,222,212,211,112";
+                
+            }
+            else{
+                //建表
+                //直接插入数据
+            }
+            
+            [ecgDates replaceObjectAtIndex:0 withObject:ecgData];//添加数据
+        }
+    }
+    */
+}
+/***************************蓝牙end**************************************/
+
+//获取当前时间
+-(NSString *)getCurTime{
     //获得系统日期
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // 设置日期格式，以字符串表示的日期形式的格式
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     // 格式化日期，GMT 时间，NSDate 转 NSString
-    currentTimeStr = [formatter stringFromDate:[NSDate date]];
+    NSString *currentTimeStr = [formatter stringFromDate:[NSDate date]];
     NSLog(@"当前时间%@",currentTimeStr);
-
+    return curLocationStr;
 }
-/***************************蓝牙end**************************************/
 
-
-
+//获取当前日期
+-(NSString *)getCurDate{
+    //获得系统日期
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // 设置日期格式，以字符串表示的日期形式的格式
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    // 格式化日期，GMT 时间，NSDate 转 NSString
+    NSString *currentTimeStr = [formatter stringFromDate:[NSDate date]];
+    NSLog(@"当前日期%@",currentTimeStr);
+    return currentTimeStr;
+}
 
 /***************************定位**************************************/
 
@@ -337,7 +391,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
 - (void)popDemoDataAndPushToLeads
 {
     int length = 440;
-    short **data = [ECGDatas getDemoData:length];
+    short **data = [datasOfECG getDemoData:length];
     
     NSArray *data12Arrays = [self convertDemoData:data dataLength:length doWilsonConvert:NO];
     

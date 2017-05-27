@@ -20,7 +20,9 @@
     UILabel *labelRate;
     //	int countOfPointsInQueue;
     int currentDrawingPoint;
-    NSString *currentTimeStr;//当前系统时间的获取，精确到毫秒
+    
+    int index;
+    NSString *currentDate;
 }
 
 @property (nonatomic, strong) NSMutableArray *leads, *buffer;
@@ -37,5 +39,7 @@
 @property (nonatomic, strong) CBPeripheral *discoveredPeripheral;
 @property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
 @property (strong, nonatomic) IBOutlet UILabel *resultText;
+
+@property (nonatomic,strong) NSMutableArray *ecgDates;//一次存入的数据
 
 @end

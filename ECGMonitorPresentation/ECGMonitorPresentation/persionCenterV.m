@@ -177,7 +177,7 @@
         ptemp.sex = self.flagSex == 1 ? @"男" : @"女";
         ptemp.age = dropDown.getBtnTitle;
         NSLog(@"%@,%@,%@,%@",ptemp.name,ptemp.sex,ptemp.age,ptemp.date_of_birth);
-        //    [pbl updatePersionInfo:ptemp];
+        [pbl updatePersionInfo:ptemp];
         return 1;
     }
     else{

@@ -1,14 +1,14 @@
 //
-//  ECGDatas.m
+//  datasOfECG.m
 //  ECGMonitorPresentation
 //
-//  Created by mac on 2017/5/17.
+//  Created by mac on 2017/5/27.
 //  Copyright © 2017年 mac. All rights reserved.
 //
 
-#import "ECGDatas.h"
+#import "datasOfECG.h"
 
-@implementation ECGDatas
+@implementation datasOfECG
 
 //通过蓝牙写入数据，多线程
 
