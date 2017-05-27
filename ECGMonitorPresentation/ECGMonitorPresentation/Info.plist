@@ -32,6 +32,8 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>App requires access to your phone&apos;s location to notify you when you enter or leave a geofence</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>App requires open bluetooth to notify you when you enter or leave a geofence</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

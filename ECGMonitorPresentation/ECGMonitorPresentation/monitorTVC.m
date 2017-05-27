@@ -10,13 +10,16 @@
 #import "monitorV.h"
 #import "ECGDatas.h"
 
-@interface monitorTVC ()
+#define MyDeviceName @"MLT-BT05"
+@interface monitorTVC () <CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @end
 
 @implementation monitorTVC
 
-@synthesize locationManager,curLocation;
+@synthesize resultText;
+
+@synthesize locationManager,curLocation,curLocationStr;
 
 @synthesize leads,scrollView;
 @synthesize labelRate;
@@ -70,10 +73,12 @@ int bufferSecond = 300;
     NSMutableArray *buf = [[NSMutableArray alloc] init];
     self.buffer = buf;//buffer初始化
 
-}
-
--(void)getLocation:(NSString *)locationStr{
-    NSLog(@"-----%@",locationStr);
+    
+    /********蓝牙获取数据*******/
+    resultText = [[UILabel alloc] initWithFrame:CGRectMake(20, 510, 200, 100)];
+    resultText.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:resultText];
+    self.centralMgr = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 -(void)onClickLeft{
@@ -96,12 +101,7 @@ int bufferSecond = 300;
 - (void)onClickShareBtn
 {
     NSLog(@"Click Share");
-    [self startLocation]; //定位调用
-}
 
-/***************************定位**************************************/
--(void)startLocation{
-    
     if (![CLLocationManager locationServicesEnabled]) {
         NSLog(@"定位服务当前可能尚未打开，请设置打开！");
         return;
@@ -113,40 +113,172 @@ int bufferSecond = 300;
     
     //如果没有授权则请求用户授权
     if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+        NSLog(@"未授权。。。");
         [locationManager requestAlwaysAuthorization];
     }
     
     locationManager.delegate = self;
     //距离过滤器，定义了设备移动后获得位置的最小距离，单位是米
     locationManager.distanceFilter = 1000.0f;
+    
     [locationManager startUpdatingLocation];
+
+}
+
+/*****************************蓝牙****************************************/
+//检查App的设备BLE是否可用 （ensure that Bluetooth low energy is supported and available to use on the central device）
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central
+{
+    switch (central.state)
+    {
+        case CBCentralManagerStatePoweredOn:
+            //discover what peripheral devices are available for your app to connect to
+            //第一个参数为CBUUID的数组，需要搜索特点服务的蓝牙设备，只要每搜索到一个符合条件的蓝牙设备都会调用didDiscoverPeripheral代理方法
+            [self.centralMgr scanForPeripheralsWithServices:nil options:nil];
+            break;
+        default:
+            NSLog(@"Central Manager did change state");
+            break;
+    }
+}
+
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    //找到需要的蓝牙设备，停止搜素，保存数据
+    if([peripheral.name isEqualToString:MyDeviceName]){
+        _discoveredPeripheral = peripheral;
+        [_centralMgr connectPeripheral:peripheral options:nil];
+    }
+}
+
+//连接成功
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    //Before you begin interacting with the peripheral, you should set the peripheral’s delegate to ensure that it receives the appropriate callbacks（设置代理）
+    [_discoveredPeripheral setDelegate:self];
+    //discover all of the services that a peripheral offers,搜索服务,回调didDiscoverServices
+    [_discoveredPeripheral discoverServices:nil];
+}
+
+//连接失败，就会得到回调：
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
+    //此时连接发生错误
+    NSLog(@"connected periphheral failed");
+}
+
+//获取服务后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
+{
+    if (error)
+    {
+        NSLog(@"didDiscoverServices : %@", [error localizedDescription]);
+        return;
+    }
+    
+    for (CBService *s in peripheral.services)
+    {
+        NSLog(@"Service found with UUID : %@", s.UUID);
+        //Discovering all of the characteristics of a service,回调didDiscoverCharacteristicsForService
+        [s.peripheral discoverCharacteristics:nil forService:s];
+    }
+}
+
+//获取特征后的回调
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
+    if (error)
+    {
+        NSLog(@"didDiscoverCharacteristicsForService error : %@", [error localizedDescription]);
+        return;
+    }
+    
+    for (CBCharacteristic *c in service.characteristics)
+    {
+        NSLog(@"c.properties:%lu",(unsigned long)c.properties) ;
+        //Subscribing to a Characteristic’s Value 订阅
+        [peripheral setNotifyValue:YES forCharacteristic:c];
+        // read the characteristic’s value，回调didUpdateValueForCharacteristic
+        [peripheral readValueForCharacteristic:c];
+        _writeCharacteristic = c;
+    }
     
 }
 
+//订阅的特征值有新的数据时回调
+- (void)peripheral:(CBPeripheral *)peripheral
+didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
+             error:(NSError *)error {
+    if (error) {
+        NSLog(@"Error changing notification state: %@",
+              [error localizedDescription]);
+    }
+    
+    [peripheral readValueForCharacteristic:characteristic];
+    
+}
+
+// 获取到特征的值时回调
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
+{
+    if (error)
+    {
+        NSLog(@"didUpdateValueForCharacteristic error : %@", error.localizedDescription);
+        return;
+    }
+    
+    NSData *data = characteristic.value;
+    resultText.text = [[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",resultText.text);
+}
+/***************************蓝牙end**************************************/
+
+
+
+
+/***************************定位**************************************/
+
 #pragma mark Core Location 委托方法用于实现位置的更新
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    curLocation = [locations lastObject];
-    NSLog(@"纬度：%f，经度：%3.5f",curLocation.coordinate.latitude,curLocation.coordinate.longitude);
-    [locationManager stopUpdatingLocation];
+    self.curLocation = [locations lastObject];
+
+    //取消延迟执行函数
+    //[[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reverse) object:nil];
+    //[self performSelector:@selector(reverse) withObject:nil afterDelay:0.f];
+    
     [self reverse];
 }
 
 -(void)reverse{
     CLGeocoder *gl = [[CLGeocoder alloc] init];
     
+    
     [gl reverseGeocodeLocation:curLocation completionHandler:^(NSArray *placemarks,NSError *error){
+        
         if (error){
             NSLog(@"Geocode failed with error: %@", error);
             return;
         }
         
         if([placemarks count] >0){
+            NSLog(@"===================");
             NSInteger count = [placemarks count];
             CLPlacemark *placemark = placemarks[0];
+        
+        //name西安邮电大学长安校区（东区）country=中国,administrativeArea=陕西省,locality=西安市,subLocality=长安区
+            NSString *latitude = [NSString stringWithFormat:@"%f",curLocation.coordinate.latitude];
+             NSString *longitude = [NSString stringWithFormat:@"%f",curLocation.coordinate.longitude];
+             curLocationStr = [NSString stringWithFormat:@"纬度：%@，经度：%@,地标：%@%@%@%@%@",latitude,longitude,placemark.name,placemark.country,placemark.administrativeArea,placemark.locality,placemark.subLocality];
+            
         NSLog(@"%ld,name=%@,country=%@,locality=%@,administrativeArea=%@,subLocality=%@",count,placemark.name,placemark.country,placemark.locality,placemark.administrativeArea,placemark.subLocality);
+            
+            UILabel *x = [[UILabel alloc] initWithFrame:CGRectMake(20, 400, 1000, 200)];
+            x.text = curLocationStr;
+            
+            [self.view addSubview:x];
         }
     }];
     
+    [locationManager stopUpdatingLocation];
+  
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

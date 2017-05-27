@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0414AE131ECDB2960071CF9C /* ECG_Monitor_DB.db in Resources */ = {isa = PBXBuildFile; fileRef = 0414AE121ECDB2960071CF9C /* ECG_Monitor_DB.db */; };
+		04255A0C1ED971100048BAB7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04255A0B1ED971100048BAB7 /* CoreBluetooth.framework */; };
 		0426D9751EC82251009282EB /* monitorTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9731EC82251009282EB /* monitorTVC.m */; };
 		0426D9761EC82251009282EB /* monitorTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D9741EC82251009282EB /* monitorTVC.xib */; };
 		0426D97A1EC8239A009282EB /* suggestTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426D9781EC8239A009282EB /* suggestTVC.m */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0414AE121ECDB2960071CF9C /* ECG_Monitor_DB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ECG_Monitor_DB.db; sourceTree = "<group>"; };
+		04255A0B1ED971100048BAB7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		0426D9721EC82251009282EB /* monitorTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitorTVC.h; sourceTree = "<group>"; };
 		0426D9731EC82251009282EB /* monitorTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monitorTVC.m; sourceTree = "<group>"; };
 		0426D9741EC82251009282EB /* monitorTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = monitorTVC.xib; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04255A0C1ED971100048BAB7 /* CoreBluetooth.framework in Frameworks */,
 				044B32831ED4A9180063F514 /* AddressBook.framework in Frameworks */,
 				044B327B1ED491AB0063F514 /* CoreLocation.framework in Frameworks */,
 				04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */,
@@ -145,6 +148,7 @@
 		04FF88D31EC7665A0044FF7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04255A0B1ED971100048BAB7 /* CoreBluetooth.framework */,
 				044B32821ED4A9170063F514 /* AddressBook.framework */,
 				044B327A1ED491AB0063F514 /* CoreLocation.framework */,
 				04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */,
@@ -185,7 +189,8 @@
 				TargetAttributes = {
 					04FF88B81EC765B90044FF7F = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = WXLT6UF8UE;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -360,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WXLT6UF8UE;
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -379,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WXLT6UF8UE;
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

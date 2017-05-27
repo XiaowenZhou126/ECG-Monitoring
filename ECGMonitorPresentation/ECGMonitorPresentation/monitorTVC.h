@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
 #import <AddressBook/AddressBook.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @interface monitorTVC : UITableViewController <CLLocationManagerDelegate>
 {
@@ -28,5 +29,12 @@
 
 @property (nonatomic,strong) CLLocationManager *locationManager;
 @property (nonatomic,strong) CLLocation *curLocation;
+@property (nonatomic,strong) NSString *curLocationStr;
+
+
+@property (nonatomic, strong) CBCentralManager *centralMgr;
+@property (nonatomic, strong) CBPeripheral *discoveredPeripheral;
+@property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
+@property (strong, nonatomic) IBOutlet UILabel *resultText;
 
 @end
