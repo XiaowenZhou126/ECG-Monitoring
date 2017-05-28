@@ -29,7 +29,7 @@
 @synthesize buffer, photoView;
 int leadCount = 1;//画leadCount个心电图
 int sampleRate = 500;
-float drawingInterval = 0.04;
+float drawingInterval = 0.3f;
 int bufferSecond = 300;
 
 - (void)viewDidLoad {
@@ -136,10 +136,6 @@ int bufferSecond = 300;
     
     [locationManager startUpdatingLocation];
 
-}
-
--(void)viewWillDisappear{
-    NSLog(@"111111");
 }
 
 /*****************************蓝牙****************************************/
@@ -280,6 +276,21 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
             //index = 1,清除ecgDates的数据后，插入当前的数据，所以index=1
         
             [ecgdataBl insertData:ecgDates];
+
+            
+            /*----------------------------------------------------------------*/
+            /*
+            NSMutableArray *intData = [[NSMutableArray alloc] init];
+            for(int i=0;i<ecgDates.count;i++){
+                NSNumber *temp = @(([ecgDates[i] intValue])/100);
+                [intData addObject:temp];
+            }
+            NSArray *popPoints = [NSArray arrayWithObject:intData];
+            monitorV *lead = [self.leads objectAtIndex:0];
+           // [lead.pointsArray addObjectsFromArray:popPoints];
+             */
+             /*----------------------------------------------------------------*/
+            
             
             for(int i=0;i<50;i++){
                 [ecgDates replaceObjectAtIndex:i withObject:@"0"];
@@ -373,7 +384,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
 
 - (void)startTimer_popDataFromBuffer
 {
-    CGFloat popDataInterval =420.0f / sampleRate;//绘画的时间间隔，即隔几秒绘制一段
+    CGFloat popDataInterval = 1.0f;//1s写入一次数据
     
     popDataTimer = [NSTimer scheduledTimerWithTimeInterval:popDataInterval
                                                     target:self
@@ -389,15 +400,22 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
 
 - (void)popDemoDataAndPushToLeads
 {
-    int length = 440;
-    short **data = [datasOfECG getDemoData:length];
+    //int length = 440;
+    //short **data = [datasOfECG getDemoData:length];
+    //NSArray *data12Arrays = [self convertDemoData:data dataLength:length doWilsonConvert:NO];
     
-    NSArray *data12Arrays = [self convertDemoData:data dataLength:length doWilsonConvert:NO];
+    NSMutableArray *intData = [[NSMutableArray alloc] init];
+    for(int i=0;i<ecgDates.count;i++){
+        NSNumber *temp = @(([ecgDates[i] intValue])/2);
+        [intData addObject:temp];
+    }
+
     
     for (int i=0; i<leadCount; i++)
     {
-        NSArray *data = [data12Arrays objectAtIndex:i];
-        [self pushPoints:data data12Index:i];
+        //NSArray *data = [data12Arrays objectAtIndex:i];
+        
+        [self pushPoints:intData data12Index:i];
     }
 }
 

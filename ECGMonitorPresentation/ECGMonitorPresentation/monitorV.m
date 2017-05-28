@@ -19,7 +19,7 @@ float lineWidth_LiveMonitor = 1.3;
 float lineWidth_Static = 1;
 
 int pointsPerSecond = 500;
-float pixelPerPoint = 2 * 60.0f / 500.0f;
+float pixelPerPoint = 1.5f;
 int pointPerDraw = 500.0f * 0.04f;
 
 - (id)initWithFrame:(CGRect)frame {
