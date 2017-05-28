@@ -10,7 +10,7 @@
 #import <sqlite3.h>
 #import "ECGDatas.h"
 
-#define DBFILE_NAME @"/ECG_Monitor_DB.db"
+#define DBFILE_NAME @"ECG_Monitor_DB.db"
 @interface ECGDatasDAO : NSObject
 {
     sqlite3 *db;//保存对数据库的引用

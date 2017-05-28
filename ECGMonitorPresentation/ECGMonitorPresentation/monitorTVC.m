@@ -9,6 +9,7 @@
 #import "monitorTVC.h"
 #import "monitorV.h"
 #import "datasOfECG.h"
+#import "ECGDatas.h"
 #import "ECGDatasDAO.h"
 
 #define MyDeviceName @"MLT-BT05"
@@ -21,7 +22,7 @@
 @synthesize resultText;
 
 @synthesize locationManager,curLocation,curLocationStr;
-@synthesize ecgDates;
+@synthesize ecgDates,ecgdataBl;
 
 @synthesize leads,scrollView;
 @synthesize labelRate;
@@ -37,13 +38,12 @@ int bufferSecond = 300;
     self.tableView.separatorColor = [UIColor clearColor];
     
     self.navigationItem.title = @"ECG Testing";
+    ecgdataBl = [[ECGDatasBL alloc] init];
     ecgDates = [[NSMutableArray alloc] initWithCapacity:50];
     index = 0;
     for(int i=0;i<50;i++){
         [ecgDates insertObject:@"0" atIndex:i];
     }
-    
-    currentDate = [self getCurDate];
     
     /*
     float width = [[UIScreen mainScreen] bounds].size.width;
@@ -93,6 +93,9 @@ int bufferSecond = 300;
 
 -(void)onClickLeft{
     NSLog(@"left");
+    for(int i=0;i<91;i++){
+        [self dealDatas:@"1"];
+    }
 }
 
 /*
@@ -133,6 +136,10 @@ int bufferSecond = 300;
     
     [locationManager startUpdatingLocation];
 
+}
+
+-(void)viewWillDisappear{
+    NSLog(@"111111");
 }
 
 /*****************************蓝牙****************************************/
@@ -240,61 +247,51 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     resultText.text = ecgData;
     NSLog(@"此时的心电数据：%@",resultText.text);
     
-    /*
-    //过滤数据，当数据的值不为0的时候，考虑处理
-    if(![ecgData isEqualToString:@"0"]){
-        if([[ecgDates lastObject] isEqualToString:@"0"]){
-            //数组最后一个元素为0,添加数据
-            [ecgDates replaceObjectAtIndex:index withObject:ecgData];//添加数据
-            index++;
-        }
-        else{
-            index = 1;
-            //判断时间是否一致，一天一个表
-            //写入数据库，对timeStr进行分割
-            //index = 1,清除ecgDates的数据后，插入当前的数据，所以index=1
-            if([currentDate isEqualToString:[self getCurDate]]){
-                //直接插入数据
-                ECGDatas *model1 = [[ECGDatas alloc] init];
-                model1.createDateTime = @"";
-                model1.data = @"112,222,212,211,112";
-                
-            }
-            else{
-                //建表
-                //直接插入数据
-            }
-            
-            [ecgDates replaceObjectAtIndex:0 withObject:ecgData];//添加数据
-        }
+    if(ecgData && ecgData.length>1){
+        //存在且是数字
+        NSString *tempData = [ecgData substringToIndex:4];
+        if([self isPureInt:tempData])
+            [self dealDatas:tempData];
+
     }
-    */
+    
+    
 }
 /***************************蓝牙end**************************************/
 
-//获取当前时间
--(NSString *)getCurTime{
-    //获得系统日期
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    // 设置日期格式，以字符串表示的日期形式的格式
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
-    // 格式化日期，GMT 时间，NSDate 转 NSString
-    NSString *currentTimeStr = [formatter stringFromDate:[NSDate date]];
-    NSLog(@"当前时间%@",currentTimeStr);
-    return curLocationStr;
+//判断字符串是否是纯数字（整形）
+- (BOOL)isPureInt:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
 }
 
-//获取当前日期
--(NSString *)getCurDate{
-    //获得系统日期
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    // 设置日期格式，以字符串表示的日期形式的格式
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    // 格式化日期，GMT 时间，NSDate 转 NSString
-    NSString *currentTimeStr = [formatter stringFromDate:[NSDate date]];
-    NSLog(@"当前日期%@",currentTimeStr);
-    return currentTimeStr;
+-(void)dealDatas:(NSString*)data{
+    //过滤数据，当数据的值不为0的时候，才需要处理
+    if(![data isEqualToString:@"0"]){
+        
+        if([[ecgDates lastObject] isEqualToString:@"0"]){
+            //数组最后一个元素为0,添加数据，即数组中没有50个有效数据
+            [ecgDates replaceObjectAtIndex:index withObject:data];//添加数据
+            index++;
+        }
+        else{
+            //判断时间是否一致，一天一个表
+            //index = 1,清除ecgDates的数据后，插入当前的数据，所以index=1
+        
+            [ecgdataBl insertData:ecgDates];
+            
+            for(int i=0;i<50;i++){
+                [ecgDates replaceObjectAtIndex:i withObject:@"0"];
+            }
+            [ecgDates replaceObjectAtIndex:0 withObject:data];//添加数据
+            
+            index = 1;
+            
+        }
+    }
 }
+
 
 /***************************定位**************************************/
 
@@ -332,10 +329,12 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
             
         NSLog(@"%ld,name=%@,country=%@,locality=%@,administrativeArea=%@,subLocality=%@",count,placemark.name,placemark.country,placemark.locality,placemark.administrativeArea,placemark.subLocality);
             
+            /*
             UILabel *x = [[UILabel alloc] initWithFrame:CGRectMake(20, 400, 1000, 200)];
             x.text = curLocationStr;
             
             [self.view addSubview:x];
+             */
         }
     }];
     

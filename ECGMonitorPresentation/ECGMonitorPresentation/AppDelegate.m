@@ -12,7 +12,9 @@
 #import "persionCenterTVC.h"
 
 @interface AppDelegate ()
-
+{
+    monitorTVC *monitorVC;
+}
 @end
 
 @implementation AppDelegate
@@ -27,7 +29,7 @@
     self.window.rootViewController = tabBarOfECG;
     
     //初始化4个视图的控制器
-    monitorTVC *monitorVC = [[monitorTVC alloc] init];
+    monitorVC = [[monitorTVC alloc] init];
     suggestTVC *suggestVC = [[suggestTVC alloc] init];
     persionCenterTVC *persionCenterVC = [[persionCenterTVC alloc] init];
     
@@ -57,6 +59,10 @@
 //    NSLog(@"resourcePath++++%@",[[NSBundle mainBundle] resourcePath]);
 //    NSLog(@"NSHomeDirectory---%@", NSHomeDirectory() );
 //    NSLog(@"%@",NSSearchPathForDirectoriesInDomains((NSDocumentDirectory), NSUserDomainMask, YES));
+    
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *file = [documentDirectory stringByAppendingPathComponent:DBFILE_NAME];
+    NSLog(@"====%@",file);
     return YES;
 }
 

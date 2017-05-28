@@ -13,6 +13,8 @@
 		04B9EFE51EC7F694006C0785 /* BusinessLogicLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */; };
 		04B9EFE71EC7F694006C0785 /* libBusinessLogicLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2E34B1EC7632600C6B30F /* libBusinessLogicLayer.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		04B9EFEE1EC7F727006C0785 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */; };
+		04C56B001EDA5C30007BF069 /* ECGDatasBL.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C56AFE1EDA5C30007BF069 /* ECGDatasBL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04C56B011EDA5C30007BF069 /* ECGDatasBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C56AFF1EDA5C30007BF069 /* ECGDatasBL.m */; };
 		04E89B861ECAE19300F08682 /* persionCenterBL.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E89B841ECAE19200F08682 /* persionCenterBL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04E89B871ECAE19300F08682 /* persionCenterBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E89B851ECAE19300F08682 /* persionCenterBL.m */; };
 		04E89B8A1ECB64FD00F08682 /* libPersistenceLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */; };
@@ -50,6 +52,9 @@
 		04B9EFE41EC7F694006C0785 /* BusinessLogicLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicLayerTests.m; sourceTree = "<group>"; };
 		04B9EFE61EC7F694006C0785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPersistenceLayer.a; path = "../../../../Library/Developer/Xcode/DerivedData/ECG-Monitor-dzdgbipbooksklefpcfwefhrngat/Build/Products/Debug-iphonesimulator/libPersistenceLayer.a"; sourceTree = "<group>"; };
+		04C56AFE1EDA5C30007BF069 /* ECGDatasBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGDatasBL.h; sourceTree = "<group>"; };
+		04C56AFF1EDA5C30007BF069 /* ECGDatasBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECGDatasBL.m; sourceTree = "<group>"; };
+		04C56B021EDA670D007BF069 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		04E89B841ECAE19200F08682 /* persionCenterBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = persionCenterBL.h; sourceTree = "<group>"; };
 		04E89B851ECAE19300F08682 /* persionCenterBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = persionCenterBL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +106,8 @@
 				04B2E34F1EC7632600C6B30F /* BusinessLogicLayer.m */,
 				04E89B841ECAE19200F08682 /* persionCenterBL.h */,
 				04E89B851ECAE19300F08682 /* persionCenterBL.m */,
+				04C56AFE1EDA5C30007BF069 /* ECGDatasBL.h */,
+				04C56AFF1EDA5C30007BF069 /* ECGDatasBL.m */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 		04B2E3571EC7636600C6B30F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C56B021EDA670D007BF069 /* libsqlite3.dylib */,
 				04B9EFED1EC7F727006C0785 /* libPersistenceLayer.a */,
 				04B2E3581EC7636700C6B30F /* libPersistenceLayer.a */,
 			);
@@ -131,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E89B861ECAE19300F08682 /* persionCenterBL.h in Headers */,
+				04C56B001EDA5C30007BF069 /* ECGDatasBL.h in Headers */,
 				04B9EF931EC7EF74006C0785 /* BusinessLogicLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C56B011EDA5C30007BF069 /* ECGDatasBL.m in Sources */,
 				04B2E3501EC7632600C6B30F /* BusinessLogicLayer.m in Sources */,
 				04E89B871ECAE19300F08682 /* persionCenterBL.m in Sources */,
 			);
@@ -291,9 +301,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -333,8 +345,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -344,6 +358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraryLocation",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -355,6 +373,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraryLocation",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -367,6 +389,10 @@
 			buildSettings = {
 				INFOPLIST_FILE = BusinessLogicLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraryLocation",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.BusinessLogicLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -377,6 +403,10 @@
 			buildSettings = {
 				INFOPLIST_FILE = BusinessLogicLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraryLocation",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.BusinessLogicLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

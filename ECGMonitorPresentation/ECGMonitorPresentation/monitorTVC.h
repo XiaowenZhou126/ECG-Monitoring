@@ -11,6 +11,9 @@
 #import <CoreLocation/CLLocationManagerDelegate.h>
 #import <AddressBook/AddressBook.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "ECGDatasBL.h"
+
+
 
 @interface monitorTVC : UITableViewController <CLLocationManagerDelegate>
 {
@@ -22,7 +25,6 @@
     int currentDrawingPoint;
     
     int index;
-    NSString *currentDate;
 }
 
 @property (nonatomic, strong) NSMutableArray *leads, *buffer;
@@ -41,5 +43,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *resultText;
 
 @property (nonatomic,strong) NSMutableArray *ecgDates;//一次存入的数据
+@property (nonatomic,strong) ECGDatasBL *ecgdataBl;
 
 @end

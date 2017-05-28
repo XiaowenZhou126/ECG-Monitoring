@@ -72,7 +72,7 @@
 }
 
 -(void)testECGDatas{
-    NSString *tableName = @"xx";
+    NSString *tableName = @"ECG20160111";
     XCTAssertEqual(1, [ecgd createTable:tableName]);
     
     ECGDatas *model = [[ECGDatas alloc] init];
