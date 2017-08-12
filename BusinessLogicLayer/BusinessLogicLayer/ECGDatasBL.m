@@ -11,6 +11,21 @@
 @implementation ECGDatasBL
 @synthesize ecgd,model;
 
+-(NSMutableArray *)findData{
+    ecgd = [ECGDatasDAO sharedManager];
+
+    //获得系统日期
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // 设置日期格式，以字符串表示的日期形式的格式
+    [formatter setDateFormat:@"yyyyMMdd"];
+    
+    NSString *tableName = [@"ECG" stringByAppendingString:[formatter stringFromDate:[NSDate date]] ];
+    
+    NSLog(@"%@",[ecgd findNewDate:tableName]);
+    
+    return [ecgd findNewDate:tableName];
+}
+
 -(void)insertData:(NSMutableArray *)ecgDates{
     model = [[ECGDatas alloc] init];
     model.createDateTime = [self getCurTime];

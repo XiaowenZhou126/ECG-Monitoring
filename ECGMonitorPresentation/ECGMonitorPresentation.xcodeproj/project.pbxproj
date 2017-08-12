@@ -20,6 +20,13 @@
 		044B327B1ED491AB0063F514 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B327A1ED491AB0063F514 /* CoreLocation.framework */; };
 		044B32831ED4A9180063F514 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B32821ED4A9170063F514 /* AddressBook.framework */; };
 		046336DE1ED9D56200E47512 /* datasOfECG.mm in Sources */ = {isa = PBXBuildFile; fileRef = 046336DD1ED9D56200E47512 /* datasOfECG.mm */; };
+		046C87641EDE800500D921D0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3E6AB1EDC2777003725E4 /* SystemConfiguration.framework */; };
+		046C87651EDE800F00D921D0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3683E1EDE71AA003609DE /* libz.tbd */; };
+		046C87671EDE802E00D921D0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3683C1EDE718D003609DE /* Security.framework */; };
+		046C87681EDE803700D921D0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3E6A71EDC275E003725E4 /* CoreTelephony.framework */; };
+		046C87691EDE804000D921D0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D368401EDE71C1003609DE /* CFNetwork.framework */; };
+		04702A781EDEB4CC009006B1 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04702A771EDEB4CC009006B1 /* libc++.1.tbd */; };
+		04702A851EDEBDFD009006B1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04702A841EDEBDFD009006B1 /* libWeChatSDK.a */; };
 		048498E81EC836FA00F123F3 /* DShowlist2.m in Sources */ = {isa = PBXBuildFile; fileRef = 048498E71EC836FA00F123F3 /* DShowlist2.m */; };
 		04E89B891ECAF7A700F08682 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */; };
 		04FF88BE1EC765B90044FF7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF88BD1EC765B90044FF7F /* main.m */; };
@@ -52,8 +59,22 @@
 		044B32821ED4A9170063F514 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		046336DC1ED9D56200E47512 /* datasOfECG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = datasOfECG.h; sourceTree = "<group>"; };
 		046336DD1ED9D56200E47512 /* datasOfECG.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = datasOfECG.mm; sourceTree = "<group>"; };
+		04702A771EDEB4CC009006B1 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		04702A7A1EDEB5FF009006B1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = ../OpenSDK1.7.7/libWeChatSDK.a; sourceTree = "<group>"; };
+		04702A7C1EDEB5FF009006B1 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = ../OpenSDK1.7.7/WechatAuthSDK.h; sourceTree = "<group>"; };
+		04702A7D1EDEB5FF009006B1 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = ../OpenSDK1.7.7/WXApi.h; sourceTree = "<group>"; };
+		04702A7E1EDEB5FF009006B1 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = ../OpenSDK1.7.7/WXApiObject.h; sourceTree = "<group>"; };
+		04702A811EDEB687009006B1 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		04702A841EDEBDFD009006B1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = ECGMonitorPresentation/libWeChatSDK.a; sourceTree = "<group>"; };
 		048498E61EC836FA00F123F3 /* DShowlist2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DShowlist2.h; sourceTree = "<group>"; };
 		048498E71EC836FA00F123F3 /* DShowlist2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DShowlist2.m; sourceTree = "<group>"; };
+		04D3683A1EDE7172003609DE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		04D3683C1EDE718D003609DE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		04D3683E1EDE71AA003609DE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		04D368401EDE71C1003609DE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		04D3E6A71EDC275E003725E4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		04D3E6A91EDC276A003725E4 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		04D3E6AB1EDC2777003725E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04E89B881ECAF7A700F08682 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		04FF88B91EC765B90044FF7F /* ECGMonitorPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECGMonitorPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FF88BD1EC765B90044FF7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +95,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04702A851EDEBDFD009006B1 /* libWeChatSDK.a in Frameworks */,
+				04702A781EDEB4CC009006B1 /* libc++.1.tbd in Frameworks */,
+				046C87691EDE804000D921D0 /* CFNetwork.framework in Frameworks */,
+				046C87681EDE803700D921D0 /* CoreTelephony.framework in Frameworks */,
+				046C87671EDE802E00D921D0 /* Security.framework in Frameworks */,
+				046C87651EDE800F00D921D0 /* libz.tbd in Frameworks */,
+				046C87641EDE800500D921D0 /* SystemConfiguration.framework in Frameworks */,
 				04255A0C1ED971100048BAB7 /* CoreBluetooth.framework in Frameworks */,
 				044B32831ED4A9180063F514 /* AddressBook.framework in Frameworks */,
 				044B327B1ED491AB0063F514 /* CoreLocation.framework in Frameworks */,
@@ -110,6 +138,10 @@
 				04FF88C01EC765B90044FF7F /* AppDelegate.m */,
 				04FF88C21EC765BA0044FF7F /* ViewController.h */,
 				04FF88C31EC765BA0044FF7F /* ViewController.m */,
+				04702A7A1EDEB5FF009006B1 /* libWeChatSDK.a */,
+				04702A7C1EDEB5FF009006B1 /* WechatAuthSDK.h */,
+				04702A7D1EDEB5FF009006B1 /* WXApi.h */,
+				04702A7E1EDEB5FF009006B1 /* WXApiObject.h */,
 				04FF88C51EC765BA0044FF7F /* Main.storyboard */,
 				04FF88C81EC765BA0044FF7F /* Assets.xcassets */,
 				04FF88CA1EC765BB0044FF7F /* LaunchScreen.storyboard */,
@@ -148,6 +180,16 @@
 		04FF88D31EC7665A0044FF7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04702A841EDEBDFD009006B1 /* libWeChatSDK.a */,
+				04702A811EDEB687009006B1 /* libc++abi.tbd */,
+				04702A771EDEB4CC009006B1 /* libc++.1.tbd */,
+				04D368401EDE71C1003609DE /* CFNetwork.framework */,
+				04D3683E1EDE71AA003609DE /* libz.tbd */,
+				04D3683C1EDE718D003609DE /* Security.framework */,
+				04D3683A1EDE7172003609DE /* libc++.tbd */,
+				04D3E6AB1EDC2777003725E4 /* SystemConfiguration.framework */,
+				04D3E6A91EDC276A003725E4 /* libz.1.2.8.tbd */,
+				04D3E6A71EDC275E003725E4 /* CoreTelephony.framework */,
 				04255A0B1ED971100048BAB7 /* CoreBluetooth.framework */,
 				044B32821ED4A9170063F514 /* AddressBook.framework */,
 				044B327A1ED491AB0063F514 /* CoreLocation.framework */,
@@ -362,38 +404,54 @@
 		04FF88D11EC765BB0044FF7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = WXLT6UF8UE;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ECGMonitorPresentation",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.ECGMonitorPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ../weChatSDk";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		04FF88D21EC765BB0044FF7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = WXLT6UF8UE;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = ECGMonitorPresentation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ECGMonitorPresentation",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = xupt.ECGMonitorPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/** ../weChatSDk";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

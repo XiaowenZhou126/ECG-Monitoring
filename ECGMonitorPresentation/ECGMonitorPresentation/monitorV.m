@@ -18,9 +18,9 @@ float lineWidth_Grid = 0.5;
 float lineWidth_LiveMonitor = 1.3;
 float lineWidth_Static = 1;
 
-int pointsPerSecond = 500;
-float pixelPerPoint = 1.5f;
-int pointPerDraw = 500.0f * 0.04f;
+//int pointsPerSecond = 500;
+float pixelPerPoint = 2 * 60.0f / 500.0f;
+int pointPerDraw = 300.0f * 0.04f;
 
 - (id)initWithFrame:(CGRect)frame {
     //    NSLog(@"1-*2-0");
@@ -83,6 +83,7 @@ int pointPerDraw = 500.0f * 0.04f;
     CGContextSetLineWidth(ctx, lineWidth_LiveMonitor);
     CGContextSetStrokeColorWithColor(ctx, [UIColor greenColor].CGColor);
     
+    //将数组里的点画成连续的线,要画的点传进drawdingPoints 然后调用
     CGContextAddLines(ctx, drawingPoints, count);
     CGContextStrokePath(ctx);
     
@@ -92,10 +93,11 @@ int pointPerDraw = 500.0f * 0.04f;
     
 }
 
+// 外面的数据先传给 pointArray ,再将pointArray的值取出来 转成坐标
 - (void)fireDrawing
 {
     //NSLog(@"7-3-0");
-    float uVpb = 0.9;
+    float uVpb = 1.0;
     float pixelPerUV = 5 * 10.0 / 1000;
     
     int pointCount = pointPerDraw;
@@ -118,6 +120,7 @@ int pointPerDraw = 500.0f * 0.04f;
                 i+=3; pointCount+=3; count+=3;
             }
             
+            //full_height/2
             CGFloat value = full_height/2 - [[self.pointsArray objectAtIndex:currentPoint] intValue] * uVpb * pixelPerUV;
             drawingPoints[i] = CGPointMake(pos_x, value);
             
@@ -153,7 +156,7 @@ int pointPerDraw = 500.0f * 0.04f;
     }
     
     
-    //currentPoint = 0;
+    currentPoint = 0;
     //	[pointsArray removeAllObjects];
     //	[self setNeedsDisplay];
 }
@@ -163,7 +166,7 @@ int pointPerDraw = 500.0f * 0.04f;
     //    NSLog(@"9-3-1");
     CGFloat full_width = self.frame.size.width;
     
-    int cyclePoints = ceil(full_width / pixelPerPoint);
+    int cyclePoints = ceil(full_width / pixelPerPoint);//ceil()返回大于或者等于指定表达式的最小整数
     int aPoint = (point - pos_x_offset) % cyclePoints;
     
     return aPoint * pixelPerPoint;

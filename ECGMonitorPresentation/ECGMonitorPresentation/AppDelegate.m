@@ -11,7 +11,7 @@
 #import "suggestTVC.h"
 #import "persionCenterTVC.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () 
 {
     monitorTVC *monitorVC;
 }
@@ -63,15 +63,28 @@
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *file = [documentDirectory stringByAppendingPathComponent:DBFILE_NAME];
     NSLog(@"====%@",file);
+    
+    //[WXApi registerApp:@"wxf34ff11121f9754d" withDescription:@"测试"];//此为申请下来的key一般以wx开头
+    //[WXApi registerApp:@"wxf34ff11121f9754d"];
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
+/*
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (void)onResp:(BaseResp *)resp {
+    NSLog(@"回调函数");
+}
+*/
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

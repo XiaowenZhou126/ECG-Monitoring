@@ -11,6 +11,9 @@
 #import "datasOfECG.h"
 #import "ECGDatas.h"
 #import "ECGDatasDAO.h"
+#import "WechatAuthSDK.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 #define MyDeviceName @"MLT-BT05"
 @interface monitorTVC () <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -19,7 +22,7 @@
 
 @implementation monitorTVC
 
-@synthesize resultText;
+//@synthesize resultText;
 
 @synthesize locationManager,curLocation,curLocationStr;
 @synthesize ecgDates,ecgdataBl;
@@ -29,7 +32,7 @@
 @synthesize buffer, photoView;
 int leadCount = 1;//画leadCount个心电图
 int sampleRate = 500;
-float drawingInterval = 0.3f;
+float drawingInterval = 0.04f;
 int bufferSecond = 300;
 
 - (void)viewDidLoad {
@@ -45,20 +48,9 @@ int bufferSecond = 300;
         [ecgDates insertObject:@"0" atIndex:i];
     }
     
-    /*
-    float width = [[UIScreen mainScreen] bounds].size.width;
-    float height = [[UIScreen mainScreen] bounds].size.height;
-    NSArray *segmentedArray = [[NSArray alloc]initWithObjects:@"当前",@"最近",nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
-    segmentedControl.frame = CGRectMake(width/4.0f, height/35.0f, width/2.0f, height/25.0f);
-    segmentedControl.tintColor = [UIColor redColor];
-    segmentedControl.selectedSegmentIndex = 0;
-    [segmentedControl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:segmentedControl];
-    */
     //UIBarButtonSystemItemCancel
-    UIBarButtonItem *leftItem =  [[UIBarButtonItem alloc] initWithTitle:@"当前" style:UIBarButtonItemStylePlain  target:self action:@selector(onClickLeft)];
-    leftItem.enabled = NO;
+    UIBarButtonItem *leftItem =  [[UIBarButtonItem alloc] initWithTitle:@"当前位置" style:UIBarButtonItemStylePlain  target:self action:@selector(onClickLeft)];
+    //leftItem.enabled = NO;
     self.navigationItem.leftBarButtonItem = leftItem;
     
     //target:self 是自己调用自己，修改控件的状态
@@ -83,38 +75,22 @@ int bufferSecond = 300;
     NSMutableArray *buf = [[NSMutableArray alloc] init];
     self.buffer = buf;//buffer初始化
 
+    //resultText = [[UILabel alloc] initWithFrame:CGRectMake(20, 510, 200, 100)];
+    //resultText.backgroundColor = [UIColor grayColor];
+    //[self.view addSubview:resultText];
+    //-----------------------------------------------------------
     
     /********蓝牙获取数据*******/
-    resultText = [[UILabel alloc] initWithFrame:CGRectMake(20, 510, 200, 100)];
-    resultText.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:resultText];
     self.centralMgr = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 -(void)onClickLeft{
     NSLog(@"left");
+    /*
     for(int i=0;i<91;i++){
         [self dealDatas:@"1"];
     }
-}
-
-/*
--(void)change:(UISegmentedControl *)sender{
-    NSLog(@"测试");
-    if (sender.selectedSegmentIndex == 0) {
-        NSLog(@"1");
-        self.view.backgroundColor = [UIColor greenColor];
-    }else if (sender.selectedSegmentIndex == 1){
-        NSLog(@"2");
-        self.view.backgroundColor = [UIColor yellowColor];
-    }
-}
- */
-
-- (void)onClickShareBtn
-{
-    NSLog(@"Click Share");
-
+     */
     if (![CLLocationManager locationServicesEnabled]) {
         NSLog(@"定位服务当前可能尚未打开，请设置打开！");
         return;
@@ -135,7 +111,53 @@ int bufferSecond = 300;
     locationManager.distanceFilter = 1000.0f;
     
     [locationManager startUpdatingLocation];
+    
+    // AppID：wxbbf0646591e4a6d0
+}
 
+/*
+-(void)change:(UISegmentedControl *)sender{
+    NSLog(@"测试");
+    if (sender.selectedSegmentIndex == 0) {
+        NSLog(@"1");
+        self.view.backgroundColor = [UIColor greenColor];
+    }else if (sender.selectedSegmentIndex == 1){
+        NSLog(@"2");
+        self.view.backgroundColor = [UIColor yellowColor];
+    }
+}
+ */
+
+- (void)onClickShareBtn
+{
+    NSLog(@"Click Share");
+    if (![WXApi isWXAppInstalled]) {
+        NSLog(@"该设备没有安装微信");
+    }
+    
+    if (![WXApi isWXAppSupportApi]) {
+        NSLog(@"该设备不支持微信");
+    }
+    SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
+    sendReq.bText = NO;//不使用文本信息
+    sendReq.scene = 1;//0 = 好友列表 1 = 朋友圈 2 = 收藏
+    //创建分享内容对象
+    WXMediaMessage *urlMessage = [WXMediaMessage message];
+    urlMessage.title = @"当前心电图数据";//分享标题
+    urlMessage.description = @"xx";//分享描述
+    //[urlMessage setThumbImage:[UIImage imageNamed:@"testImg"]];//分享图片,使用SDK的setThumbImage方法可压缩图片大小
+    //创建多媒体对象
+    //WXWebpageObject *webObj = [WXWebpageObject object];
+    //webObj.webpageUrl = kLinkURL;//分享链接
+    
+    //完成发送对象实例
+    //urlMessage.mediaObject = webObj;
+    //sendReq.message = urlMessage;
+    //发送分享信息
+    //[WXApi sendReq:sendReq];
+    
+    NSMutableArray *ar = [ecgdataBl findData];
+    NSLog(@"%@",[ar componentsJoinedByString:@","]);
 }
 
 /*****************************蓝牙****************************************/
@@ -240,10 +262,10 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     
     NSData *data = characteristic.value;
     NSString *ecgData = [[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    resultText.text = ecgData;
-    NSLog(@"此时的心电数据：%@",resultText.text);
+    //resultText.text = ecgData;
+    NSLog(@"此时的心电数据：%@",ecgData);
     
-    if(ecgData && ecgData.length>1){
+    if(ecgData && ecgData.length>4){
         //存在且是数字
         NSString *tempData = [ecgData substringToIndex:4];
         if([self isPureInt:tempData])
@@ -329,7 +351,6 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
         }
         
         if([placemarks count] >0){
-            NSLog(@"===================");
             NSInteger count = [placemarks count];
             CLPlacemark *placemark = placemarks[0];
         
@@ -384,7 +405,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
 
 - (void)startTimer_popDataFromBuffer
 {
-    CGFloat popDataInterval = 1.0f;//1s写入一次数据
+    CGFloat popDataInterval = 1.0f;//绘画的时间间隔，即隔几秒绘制一段
     
     popDataTimer = [NSTimer scheduledTimerWithTimeInterval:popDataInterval
                                                     target:self
@@ -398,25 +419,30 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     [self popDemoDataAndPushToLeads];
 }
 
+//----------------------------------------------
 - (void)popDemoDataAndPushToLeads
 {
-    //int length = 440;
-    //short **data = [datasOfECG getDemoData:length];
-    //NSArray *data12Arrays = [self convertDemoData:data dataLength:length doWilsonConvert:NO];
-    
+    int length = 440;
+    short **data = [datasOfECG getDemoData:length];
+    NSArray *data12Arrays = [self convertDemoData:data dataLength:length doWilsonConvert:NO];
+
     NSMutableArray *intData = [[NSMutableArray alloc] init];
     for(int i=0;i<ecgDates.count;i++){
-        NSNumber *temp = @(([ecgDates[i] intValue])/2);
+        NSNumber *temp = @(([ecgDates[i] intValue])/1.5);
         [intData addObject:temp];
     }
 
     
-    for (int i=0; i<leadCount; i++)
+    for (int i=0; i<leadCount && [intData count]>1; i++)
     {
-        //NSArray *data = [data12Arrays objectAtIndex:i];
+        //NSArray *data = [data12Arrays objectAtIndex:2];
+        //[self pushPoints:data data12Index:i];
         
         [self pushPoints:intData data12Index:i];
+        
+        
     }
+    
 }
 
 - (void)pushPoints:(NSArray *)_pointsArray data12Index:(NSInteger)data12Index;

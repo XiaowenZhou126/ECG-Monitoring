@@ -25,6 +25,7 @@
     int currentDrawingPoint;
     
     int index;
+    
 }
 
 @property (nonatomic, strong) NSMutableArray *leads, *buffer;
@@ -40,7 +41,7 @@
 @property (nonatomic, strong) CBCentralManager *centralMgr;
 @property (nonatomic, strong) CBPeripheral *discoveredPeripheral;
 @property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
-@property (strong, nonatomic) IBOutlet UILabel *resultText;
+//@property (strong, nonatomic) IBOutlet UILabel *resultText;
 
 @property (nonatomic,strong) NSMutableArray *ecgDates;//一次存入的数据
 @property (nonatomic,strong) ECGDatasBL *ecgdataBl;

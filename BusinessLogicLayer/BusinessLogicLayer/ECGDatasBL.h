@@ -18,5 +18,6 @@
 
 -(NSString *)getCurDate;
 -(void)insertData:(NSMutableArray *)ecgDates;
+-(NSMutableArray *)findData;
 
 @end
